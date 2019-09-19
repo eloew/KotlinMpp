@@ -27,8 +27,4 @@ eployment).
     * Start backend project in inteliJ
     * Run Android and/or iOS app
 
-* Kotlin Serialization
-    * [SharedCode buil.gradle.kts](SharedCode/build.gradle.kts)
-    * [settings.gradle](settings.gradle)
-
 * Issues: [Problems.txt](app/src/main/assets/Problems.txt)
