@@ -1,0 +1,4 @@
+#!/bin/bash
+export 'JAVA_HOME=/private/var/folders/t5/bgvqxc550rs1h054660s0r_80000gp/T/AppTranslocation/E8EB55CA-6AEA-44CF-A5D4-FB8EE0CA82BB/d/Android Studio.app/Contents/jre/jdk/Contents/Home/jre'
+cd '/Projects/eloew/GitHub/KotlinMpp'
+./gradlew $@

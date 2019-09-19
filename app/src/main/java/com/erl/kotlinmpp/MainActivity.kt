@@ -1,0 +1,69 @@
+package com.erl.kotlinmpp
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.util.Log
+import com.erl.data.MessageRequest
+import com.erl.data.MessageResponse
+import com.erl.kotlinmpp.util.Constants
+import kotlinx.android.synthetic.main.activity_main.*
+import com.erl.mpp.mobile.createApplicationScreenMessage
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import org.jetbrains.anko.longToast
+import org.kotlin.mpp.mobile.model.KotlinMppDataRepository
+import org.kotlin.mpp.mobile.presentation.MainPresenter
+import org.kotlin.mpp.mobile.presentation.MainView
+import kotlin.coroutines.CoroutineContext
+
+class MainActivity : AppCompatActivity(), MainView, CoroutineScope {
+
+    private val TAG = "MainActivity"
+
+    //<editor-fold desc="CoroutineScope">
+    private var job: Job = Job()
+
+    var errorMessage = ""
+
+    override val coroutineContext: CoroutineContext
+        get() = Dispatchers.Main + job
+    //</editor-fold>
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        main_text.text = createApplicationScreenMessage()
+
+        val repository = KotlinMppDataRepository(Constants.Endpoint)
+        val presenter = MainPresenter(uiContext = coroutineContext, view = this, repository = repository)
+        presenter.getApplicationScreenMessage(MessageRequest(message = "Kotlin Rocks on Ktor!"))
+    }
+
+    //<editor-fold desc="MainView">
+    override fun showApplicationScreenMessage(response: MessageResponse) {
+        runOnUiThread {
+            ktorText.text = response.message
+        }
+    }
+
+    override fun showError(error: Throwable) {
+        runOnUiThread {
+            val errorMessage = error.message?: "error"
+            longToast(errorMessage)
+            ktorText.text = errorMessage
+        }
+        Log.d(TAG, error.message)
+    }
+
+    override fun showError(message: String) {
+        runOnUiThread {
+            longToast(message)
+            ktorText.text = message
+        }
+        Log.d(TAG, message)
+    }
+    //</editor-fold>
+
+}

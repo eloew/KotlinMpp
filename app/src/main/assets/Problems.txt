@@ -1,0 +1,22 @@
+More than one file was found with OS independent path 'META-INF/ktor-http.kotlin_module'
+Added below to android build.gradle
+    packagingOptions {
+        exclude 'META-INF/ktor-http.kotlin_module'
+        exclude 'META-INF/kotlinx-io.kotlin_module'
+        exclude 'META-INF/atomicfu.kotlin_module'
+        exclude 'META-INF/ktor-utils.kotlin_module'
+        exclude 'META-INF/kotlinx-coroutines-io.kotlin_module'
+        exclude 'META-INF/ktor-client-json.kotlin_module'
+        exclude 'META-INF/ktor-client-core.kotlin_module'
+    }
+
+CLEARTEXT communication to [ip] not permitted by network security policy
+For Android 8
+Solution found at:
+https://better-coding.com/solved-android-cannot-send-data-to-the-server-cleartext-communication-to-not-permitted-by-network-security-policy/
+https://stackoverflow.com/questions/45940861/android-8-cleartext-http-traffic-not-permitted
+Used Solution #2: Add exception to the security policy
+or in manifest android:usesCleartextTraffic="true"
+AND ERROR: socket failed: EPERM (Operation not permitted)
+in manifext: <uses-permission android:name="android.permission.INTERNET" />
+Not running on API 29 will test on lower version. Get back to this later
