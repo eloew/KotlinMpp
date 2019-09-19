@@ -1,3 +1,8 @@
+Base App for my kotlin multi platform work. Android Studio prompts to update version of various item. I blindly update everything.
+Later when I try to build the SharedCode module, I start the get the 'Unresolved References' with kotlin serialization, coroutines, and about everything
+else used in the SharedCode module. My next step is to update to later versions.
+
+
 Readme Sample:
 https://github.com/ktorio/ktor-samples/blob/master/README.md
 
