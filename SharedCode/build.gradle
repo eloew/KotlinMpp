@@ -1,9 +1,10 @@
 apply plugin: 'kotlin-multiplatform'
 apply plugin: 'kotlinx-serialization'
+apply plugin: 'com.squareup.sqldelight'
 
 kotlin {
-    targets {
 
+    targets {
         //final def iOSTarget = System.getenv('SDK_NAME')?.startsWith("iphoneos") ? presets.iosArm64 : presets.iosX64
         /*
         // iPhone simulator    : presets.iosX64
@@ -23,6 +24,7 @@ kotlin {
     }
     sourceSets {
         commonMain.dependencies {
+
             api 'org.jetbrains.kotlin:kotlin-stdlib-common'
 
             implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core-common:$coroutines_version"
@@ -30,9 +32,12 @@ kotlin {
 
             implementation "io.ktor:ktor-client-core:$ktor_version"
             implementation "io.ktor:ktor-client-json:$ktor_version"
-
-
             implementation "io.ktor:ktor-client-mock:$ktor_version"
+            implementation "io.ktor:ktor-client-serialization:$ktor_version"
+
+            implementation "com.squareup.sqldelight:runtime:$sqldelight_version"
+
+            implementation "com.russhwolf:multiplatform-settings:$multiplatformSettings"
         }
 
         androidMain.dependencies {
@@ -48,6 +53,9 @@ kotlin {
             implementation "io.ktor:ktor-client-android:$ktor_version"
             implementation "io.ktor:ktor-client-okhttp:$ktor_version"
             implementation "io.ktor:ktor-client-mock-jvm:$ktor_version"
+            implementation "io.ktor:ktor-client-serialization-jvm:$ktor_version"
+
+            implementation "com.squareup.sqldelight:runtime-jvm:$sqldelight_version"
         }
 
         iOSMain.dependencies {
@@ -58,9 +66,17 @@ kotlin {
             implementation "io.ktor:ktor-client-core-native:$ktor_version"
             implementation "io.ktor:ktor-client-json-native:$ktor_version"
 
-            api "io.ktor:ktor-client-mock-native:$ktor_version"
+            implementation "io.ktor:ktor-client-serialization-native:$ktor_version"
 
+            api "io.ktor:ktor-client-mock-native:$ktor_version"
+            implementation "com.squareup.sqldelight:ios-driver:$sqldelight_version"
         }
+    }
+}
+
+sqldelight {
+    KotlinMppDb {
+        packageName = "com.erl.kotlinmpp.db"
     }
 }
 
