@@ -16,7 +16,7 @@ kotlin {
     iosX64("ios") {
         binaries {
             framework {
-                baseName = "AddressBookCommon"
+                baseName = "SharedCode"
             }
         }
     }
