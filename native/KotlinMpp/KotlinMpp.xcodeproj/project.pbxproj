@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1AB3204B23337A6E005FA6C0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB3204A23337A6E005FA6C0 /* Constants.swift */; };
 		1ABBC764232F766C00DD0B13 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABBC763232F766C00DD0B13 /* AppDelegate.swift */; };
 		1ABBC766232F766C00DD0B13 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABBC765232F766C00DD0B13 /* ViewController.swift */; };
 		1ABBC769232F766C00DD0B13 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ABBC767232F766C00DD0B13 /* Main.storyboard */; };
@@ -51,7 +50,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1AB3204A23337A6E005FA6C0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1ABBC760232F766C00DD0B13 /* KotlinMpp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KotlinMpp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ABBC763232F766C00DD0B13 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1ABBC765232F766C00DD0B13 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -94,14 +92,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1AB3204923337A3C005FA6C0 /* util */ = {
-			isa = PBXGroup;
-			children = (
-				1AB3204A23337A6E005FA6C0 /* Constants.swift */,
-			);
-			path = util;
-			sourceTree = "<group>";
-		};
 		1ABBC757232F766C00DD0B13 = {
 			isa = PBXGroup;
 			children = (
@@ -126,7 +116,6 @@
 		1ABBC762232F766C00DD0B13 /* KotlinMpp */ = {
 			isa = PBXGroup;
 			children = (
-				1AB3204923337A3C005FA6C0 /* util */,
 				1ABBC763232F766C00DD0B13 /* AppDelegate.swift */,
 				1ABBC765232F766C00DD0B13 /* ViewController.swift */,
 				1ABBC767232F766C00DD0B13 /* Main.storyboard */,
@@ -310,7 +299,6 @@
 			files = (
 				1ABBC766232F766C00DD0B13 /* ViewController.swift in Sources */,
 				1ABBC764232F766C00DD0B13 /* AppDelegate.swift in Sources */,
-				1AB3204B23337A6E005FA6C0 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

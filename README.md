@@ -23,8 +23,7 @@ eployment).
 
 * Setup
     * Endpoint
-        * [Android](app/src/main/java/com/erl/kotlinmpp/util/Constants.kt) - Change IP & Port
-        * [iOS](native/KotlinMpp/KotlinMpp/util/Constants.swift) - Change IP & Port
+        * [SharedCode](SharedCode/commonMain/ConstantsShared.kt) - Change IP & Port
 
 * Testing
     * Start backend project in inteliJ

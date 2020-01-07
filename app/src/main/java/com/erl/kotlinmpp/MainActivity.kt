@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.util.Log
 import com.erl.data.MessageRequest
 import com.erl.data.MessageResponse
-import com.erl.kotlinmpp.util.Constants
 import kotlinx.android.synthetic.main.activity_main.*
 import com.erl.mpp.mobile.createApplicationScreenMessage
 import kotlinx.coroutines.CoroutineScope
