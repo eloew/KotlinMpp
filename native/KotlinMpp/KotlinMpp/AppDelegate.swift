@@ -11,11 +11,6 @@ import SharedCode
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-    public lazy var kotlinMppService = {
-        KotlinMppDataRepository(
-            endPoint: Constants.Baseurl.end_point)
-    }()
     
     var window: UIWindow?
 

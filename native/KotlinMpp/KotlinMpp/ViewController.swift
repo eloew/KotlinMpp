@@ -11,15 +11,15 @@ import SharedCode
 
 class ViewController: UIViewController, MainView {
 
+    @IBOutlet weak var sharedCodeMessage: UILabel!
     @IBOutlet weak var ktorMessage: UILabel!
     //MARK: - Api
     
-    private let repository = (UIApplication.shared.delegate as! AppDelegate).kotlinMppService
+
     private lazy var presenter: MainPresenter = {
         MainPresenter (
             uiContext: UI() as KotlinCoroutineContext,
-            view: self,
-            repository: repository
+            view: self
         )
     }()
     
@@ -29,18 +29,22 @@ class ViewController: UIViewController, MainView {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        /*
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 300, height: 21))
         label.center = CGPoint(x: 160, y: 285)
         label.textAlignment = .center
         label.font = label.font.withSize(25)
         label.text = CommonKt.createApplicationScreenMessage()
         view.addSubview(label)
+        */
         
+        sharedCodeMessage.text = CommonKt.createApplicationScreenMessage()
         presenter.getApplicationScreenMessage(request: MessageRequest(message: "Ktor Rocks on iOS"))
     }
 
     //MARK: - MainView
     func showApplicationScreenMessage(response: MessageResponse) {
+        print("response message: \(response.message)")
         ktorMessage.text = response.message
     }
     
