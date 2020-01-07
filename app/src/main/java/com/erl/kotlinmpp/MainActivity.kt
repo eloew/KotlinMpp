@@ -12,7 +12,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import org.jetbrains.anko.longToast
-import org.kotlin.mpp.mobile.model.KotlinMppDataRepository
 import org.kotlin.mpp.mobile.presentation.MainPresenter
 import org.kotlin.mpp.mobile.presentation.MainView
 import kotlin.coroutines.CoroutineContext
@@ -36,16 +35,15 @@ class MainActivity : AppCompatActivity(), MainView, CoroutineScope {
 
         main_text.text = createApplicationScreenMessage()
 
-        val repository = KotlinMppDataRepository(Constants.Endpoint)
-        val presenter = MainPresenter(uiContext = coroutineContext, view = this, repository = repository)
+        val presenter = MainPresenter(uiContext = coroutineContext, view = this)
         presenter.getApplicationScreenMessage(MessageRequest(message = "Kotlin Rocks on Ktor!"))
     }
 
     //<editor-fold desc="MainView">
     override fun showApplicationScreenMessage(response: MessageResponse) {
-        runOnUiThread {
+        //runOnUiThread {
             ktorText.text = response.message
-        }
+        //}
     }
 
     override fun showError(error: Throwable) {
