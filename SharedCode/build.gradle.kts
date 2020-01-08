@@ -13,6 +13,14 @@ kotlin {
         }
     }
 
+    iosArm64("ios") {
+        binaries {
+            framework {
+                baseName = "SharedCode"
+            }
+        }
+    }
+    /*
     iosX64("ios") {
         binaries {
             framework {
@@ -20,7 +28,7 @@ kotlin {
             }
         }
     }
-
+    */
     sourceSets {
         val ktorVersion = "1.2.5"
         val coroutinesVersion = "1.3.2"
@@ -89,6 +97,15 @@ val packForXcode by tasks.creating(Sync::class) {
     val targetDir = File(buildDir, "xcode-frameworks")
     from({ framework.outputDirectory })
     into(targetDir)
+
+    doLast {
+        val gradlew = File(targetDir, "gradlew")
+        gradlew.writeText("#!/bin/bash\n"
+                + "export 'JAVA_HOME=${System.getProperty("java.home")}'\n"
+                + "cd '${rootProject.rootDir}'\n"
+                + "./gradlew \$@\n")
+        gradlew.setExecutable(true)
+    }
 }
 
 tasks.getByName("assemble").dependsOn(packForXcode)

@@ -23,7 +23,7 @@ eployment).
 
 * Setup
     * Endpoint
-        * [SharedCode](SharedCode/commonMain/ConstantsShared.kt) - Change IP & Port
+        * [SharedCode](SharedCode/src/commonMain/kotlin/ConstantsShared.kt) - Change IP & Port
 
 * Testing
     * Start backend project in inteliJ
