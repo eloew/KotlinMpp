@@ -13,6 +13,9 @@ class ViewController: UIViewController, MainView {
 
     @IBOutlet weak var sharedCodeMessage: UILabel!
     @IBOutlet weak var ktorMessage: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    
     //MARK: - Api
     
 
@@ -38,6 +41,8 @@ class ViewController: UIViewController, MainView {
         view.addSubview(label)
         */
         
+        ktorMessage.text = "Waiting on ktor..."
+        activityIndicator.startAnimating()
         sharedCodeMessage.text = CommonKt.createApplicationScreenMessage()
         presenter.getApplicationScreenMessage(request: MessageRequest(message: "Ktor Rocks on iOS"))
     }
@@ -46,17 +51,20 @@ class ViewController: UIViewController, MainView {
     func showApplicationScreenMessage(response: MessageResponse) {
         print("response message: \(response.message)")
         ktorMessage.text = response.message
+        activityIndicator.stopAnimating()
     }
     
     func showError(error: KotlinThrowable) {
         let message = error.message ?? ""
         print("MainView.showError KotlinThrowable: \(message)")
         ktorMessage.text = message
+        activityIndicator.stopAnimating()
     }
     
     func showError(message: String) {
         print("MainView.showError String: \(message)")
         ktorMessage.text = message
+        activityIndicator.stopAnimating()
     }
 }
 
