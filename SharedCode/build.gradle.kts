@@ -30,6 +30,10 @@ kotlin {
         }
     }
 
+    js {
+        browser()
+        nodejs()
+    }
     sourceSets {
         val ktorVersion = "1.2.5"
         val coroutinesVersion = "1.3.2"
@@ -83,6 +87,22 @@ kotlin {
                 implementation(ktorClient("ios"))
             }
         }
+/**/
+        val jsMain by getting {
+            dependencies {
+                // Kotlin
+                implementation(kotlin("stdlib-js"))
+                // Kotlinx
+                implementation(coroutines("-js"))
+                implementation(serialization("-js"))
+                // Ktor client
+                implementation(ktorClient("core-js"))
+                implementation(ktorClient("json-js"))
+                implementation(ktorClient("serialization-js"))
+                implementation(ktorClient("js"))
+            }
+        }
+
     }
 }
 
