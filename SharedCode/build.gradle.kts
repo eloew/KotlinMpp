@@ -12,7 +12,7 @@ kotlin {
             }
         }
     }
-
+    /* Device
     iosArm64("ios") {
         binaries {
             framework {
@@ -20,7 +20,8 @@ kotlin {
             }
         }
     }
-    /*
+     */
+    /*  Emulator    */
     iosX64("ios") {
         binaries {
             framework {
@@ -28,7 +29,7 @@ kotlin {
             }
         }
     }
-    */
+
     sourceSets {
         val ktorVersion = "1.2.5"
         val coroutinesVersion = "1.3.2"
