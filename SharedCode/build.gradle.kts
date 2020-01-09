@@ -35,9 +35,9 @@ kotlin {
         nodejs()
     }
     sourceSets {
-        val ktorVersion = "1.2.5"
+        val ktorVersion = "1.2.6"
         val coroutinesVersion = "1.3.2"
-        val serializationVersion = "0.13.0"
+        val serializationVersion = "0.14.0"
         // Shortcuts
         fun kotlinx(module: String, version: String) = "org.jetbrains.kotlinx:kotlinx-$module:$version"
         fun coroutines(module: String = "") = kotlinx("coroutines-core$module", coroutinesVersion)
