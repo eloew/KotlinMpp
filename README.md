@@ -11,11 +11,11 @@ eployment).
 * Versions.
     * IntelliJ Ultimate 2019.3
     * Android Studio 3.5.1
-    * Gradle 5.4
-    * Kotlin 1.3.50
+    * Gradle 5.4.1
+    * Kotlin 1.3.61
     * Kotlin Coroutines 1.3.2
-    * Kotlin Serialization 0.13.0
-    * Ktor 1.2.5
+    * Kotlin Serialization 0.14.0
+    * Ktor 1.2.6
     
     * XCode 11.3
     * macOS 10.14.6

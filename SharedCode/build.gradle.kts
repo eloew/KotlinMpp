@@ -32,7 +32,7 @@ kotlin {
 
     js {
         browser()
-        nodejs()
+        //nodejs()
     }
     sourceSets {
         val ktorVersion = "1.2.6"
@@ -129,4 +129,24 @@ val packForXcode by tasks.creating(Sync::class) {
     }
 }
 
+
+val copyToStaticWeb = tasks.register<Copy>("copyToStaticWeb") {
+    from("$rootDir/build/js/packages_imported/kotlin/1.3.61/kotlin.js"
+        , "$rootDir/build/js/packages_imported/kotlinx-io/0.1.16/kotlinx-io.js"
+        , "$rootDir/build/js/packages_imported/kotlinx-coroutines-core/1.3.2-1.3.60/kotlinx-coroutines-core.js"
+        , "$rootDir/build/js/packages_imported/kotlinx-io-kotlinx-coroutines-io/0.1.16/kotlinx-io-kotlinx-coroutines-io.js"
+        , "$rootDir/build/js/packages_imported/ktor-ktor-utils/1.2.6/ktor-ktor-utils.js"
+        , "$rootDir/build/js/packages_imported/ktor-ktor-http/1.2.6/ktor-ktor-http.js"
+        , "$rootDir/build/js/packages_imported/ktor-ktor-http-cio/1.2.6/ktor-ktor-http-cio.js"
+        , "$rootDir/build/js/packages_imported/ktor-ktor-client-core/1.2.6/ktor-ktor-client-core.js"
+        , "$rootDir/build/js/packages_imported/ktor-ktor-client-json/1.2.6/ktor-ktor-client-json.js"
+        , "$rootDir/build/js/packages_imported/kotlinx-serialization-kotlinx-serialization-runtime/0.14.0/kotlinx-serialization-kotlinx-serialization-runtime.js"
+        , "$rootDir/build/js/packages_imported/ktor-ktor-client-serialization/1.2.6/ktor-ktor-client-serialization.js"
+        , "$rootDir/build/js/packages/KotlinMpp-SharedCode/kotlin/KotlinMpp-SharedCode.js"
+    )
+    into(file("$rootDir/js/KotlinMppStaticWeb/libraries"))
+}
+
+
 tasks.getByName("assemble").dependsOn(packForXcode)
+tasks.getByName("assemble").dependsOn(copyToStaticWeb)
