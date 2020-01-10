@@ -2,7 +2,7 @@
   <artifact type="jar" name="SharedCode-js">
     <output-path>$PROJECT_DIR$/SharedCode/build/libs</output-path>
     <root id="archive" name="SharedCode-js.jar">
-      <element id="module-output" name="KotlinMpp-SharedCode_jsMain" />
+      <element id="module-output" name="SharedCode_jsMain" />
     </root>
   </artifact>
 </component>
