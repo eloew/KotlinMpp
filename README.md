@@ -20,10 +20,16 @@ eployment).
     * XCode 11.3
     * macOS 10.14.6
 
+* JavaScript 
+    * Static Web App
+        * [Task; copyToStaticWeb](SharedCode/build.gradle.kts) copies js includes to KotlinMppStaticWebApp
 
 * Setup
     * Endpoint
         * [SharedCode](SharedCode/src/commonMain/kotlin/ConstantsShared.kt) - Change IP & Port
+
+* Build 
+    * Run Gradle SharedCode Task 'build'
 
 * Testing
     * Start backend project in inteliJ

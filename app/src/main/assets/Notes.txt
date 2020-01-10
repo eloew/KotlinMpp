@@ -45,3 +45,18 @@ Ktor
 
 
 ./gradlew :SharedCode:packForXcode
+
+
+
+import './libraries/kotlin.js';
+import './libraries/kotlinx-io.js';
+import './libraries/kotlinx-coroutines-core.js';
+import './libraries/kotlinx-io-kotlinx-coroutines-io.js';
+import './libraries/ktor-ktor-utils.js';
+import './libraries/ktor-ktor-http.js';
+import './libraries/ktor-ktor-http-cio.js';
+import './libraries/ktor-ktor-client-core.js';
+import './libraries/ktor-ktor-client-json.js';
+import './libraries/kotlinx-serialization-kotlinx-serialization-runtime.js';
+import './libraries/ktor-ktor-client-serialization.js';
+import './libraries/KotlinMpp-SharedCode.js';

@@ -144,7 +144,7 @@ val copyToStaticWeb = tasks.register<Copy>("copyToStaticWeb") {
         , "$rootDir/build/js/packages_imported/ktor-ktor-client-serialization/1.2.6/ktor-ktor-client-serialization.js"
         , "$rootDir/build/js/packages/KotlinMpp-SharedCode/kotlin/KotlinMpp-SharedCode.js"
     )
-    into(file("$rootDir/js/KotlinMppStaticWeb/libraries"))
+          into(file("$rootDir/js/KotlinMppStaticWeb/libraries"))
 }
 
 
