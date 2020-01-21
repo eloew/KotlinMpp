@@ -36,3 +36,6 @@ eployment).
     * Run Android and/or iOS app
 
 * Issues: [Problems.txt](app/src/main/assets/Problems.txt)
+
+* Resources
+    * React [christian-draeger/kotlin-react-gradle-example](https://github.com/christian-draeger/kotlin-react-gradle-example)
