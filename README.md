@@ -2,6 +2,8 @@
 
 ###### Base app for my Kotlin Multi Platform work.
 
+
+
 * Kotlin Multi Platorm/Ktor application:
   * [Android](app) &mdash; Android App.
   * [iOS](native/KotlinMpp) &mdash; iPhone App.
@@ -25,6 +27,8 @@ eployment).
 * JavaScript 
     * Static Web App
         * [Task; copyToStaticWeb](SharedCode/build.gradle.kts) copies js includes to KotlinMppStaticWebApp
+    * React
+        * Execute tasks: publishJsPublicationToMavenLocal in project KotlinMpp/SharedCode
 
 * Setup
     * Endpoint
@@ -32,7 +36,6 @@ eployment).
 
 * Build 
     * Run Gradle SharedCode Task 'build'
-    * Execute tasks: publishJsPublicationToMavenLocal in project KotlinMpp/SharedCode
 
 * Testing
     * Start backend project in inteliJ
