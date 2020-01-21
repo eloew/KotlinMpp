@@ -1,2 +1,2 @@
-rootProject.name = "kotlin-react-gradle-example"
+rootProject.name = "KotlinMpp"
 
