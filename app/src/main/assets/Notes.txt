@@ -1,62 +1,9 @@
-Base App for my kotlin multi platform work. Android Studio prompts to update version of various item. I blindly update everything.
-Later when I try to build the SharedCode module, I start the get the 'Unresolved References' with kotlin serialization, coroutines, and about everything
-else used in the SharedCode module. My next step is to update to later versions.
 
-
-Readme Sample:
-https://github.com/ktorio/ktor-samples/blob/master/README.md
-
-Starting Versions
-    * IntelliJ 2019.1.4
-    * Android Studio 3.4.2
-    * Gradle 4.10.1
-    * Kotlin 1.3.30
-    * Kotlin Coroutines 1.1.1
-    * Kotlin Serialization 0.11.0
-    * Ktor 1.1.4
-    * XCode 10.3
-    * macOS 10.14.6
-
-
-Error when building SharedCode:  Unresolved reference: io
-    import io.ktor.client.HttpClient
-
-
-Resources
-Targeting iOS and Android with Kotlin Multiplatform
-https://play.kotlinlang.org/hands-on/Targeting%20iOS%20and%20Android%20with%20Kotlin%20Multiplatform/01_Introduction
-
-    Github sample
-    https://github.com/kotlin-hands-on/mpp-ios-android/tree/step-008
-
-
-StackOverflow: ktor dependencies not resolved in ios module of multiplatform project
-https://stackoverflow.com/questions/53508564/ktor-dependencies-not-resolved-in-ios-module-of-multiplatform-project
-Github: kotlinconf-app
-https://github.com/JetBrains/kotlinconf-app
-
-
-kotlinx.serialization
-https://github.com/Kotlin/kotlinx.serialization/blob/master/examples/example-multiplatform/build.gradle#L49
-
-Kotlin
-Kotlin Multi Platform Project
-Ktor
-
-
-./gradlew :SharedCode:packForXcode
-
-
-
-import './libraries/kotlin.js';
-import './libraries/kotlinx-io.js';
-import './libraries/kotlinx-coroutines-core.js';
-import './libraries/kotlinx-io-kotlinx-coroutines-io.js';
-import './libraries/ktor-ktor-utils.js';
-import './libraries/ktor-ktor-http.js';
-import './libraries/ktor-ktor-http-cio.js';
-import './libraries/ktor-ktor-client-core.js';
-import './libraries/ktor-ktor-client-json.js';
-import './libraries/kotlinx-serialization-kotlinx-serialization-runtime.js';
-import './libraries/ktor-ktor-client-serialization.js';
-import './libraries/KotlinMpp-SharedCode.js';
+Kotlin Android
+    uses ShareCode as a project
+Kotln iOS
+    library with packForXcode task
+kotlin js Static Web
+    js files copy over with copyToStaticWeb task
+Kotlin js React
+    Published to mave local
