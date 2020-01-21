@@ -1,11 +1,13 @@
 # Kotlin MPP - Kotlin Multi Platform with Ktor
 
-###### Base app for my Kotlin Multi Platform work. My next step is to update to later versions.
+###### Base app for my Kotlin Multi Platform work.
 
 * Kotlin Multi Platorm/Ktor application:
   * [Android](app) &mdash; Android App.
   * [iOS](native/KotlinMpp) &mdash; iPhone App.
   * [backend](backend/KotlinMpp) &mdash; Ktor Server App.
+  * [js static web](js/KotlinMppStaticWeb)
+  * [js React](js/KotlinMppReact)
 eployment).
 
 * Versions.
@@ -30,6 +32,7 @@ eployment).
 
 * Build 
     * Run Gradle SharedCode Task 'build'
+    * Execute tasks: publishJsPublicationToMavenLocal in project KotlinMpp/SharedCode
 
 * Testing
     * Start backend project in inteliJ

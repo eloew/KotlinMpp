@@ -1,7 +1,11 @@
 plugins {
     kotlin("multiplatform")
     kotlin("plugin.serialization")
+    `maven-publish`
 }
+
+group = "com.erl"
+version = "1.0.0"
 
 kotlin {
 

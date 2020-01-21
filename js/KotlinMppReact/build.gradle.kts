@@ -3,13 +3,14 @@ plugins {
 }
 
 group = "com.erl"
-version = "1.0-SNAPSHOT"
+version = "1.0"
 
 repositories {
     mavenCentral()
     jcenter()
     maven { url = uri("http://dl.bintray.com/kotlin/kotlin-js-wrappers") }
     maven { url = uri("https://dl.bintray.com/kotlin/kotlinx") }
+    mavenLocal()
 }
 
 dependencies {
@@ -35,6 +36,9 @@ kotlin {
                 implementation(npm("@jetbrains/kotlin-extensions", "1.0.1-pre.67"))
                 implementation(npm("react", "16.9.0"))
                 implementation(npm("react-dom", "16.9.0"))
+
+                //implementation(kotlin("com.erl:SharedCode-js", "1.0.0"))
+                implementation("com.erl:SharedCode-js:1.0.0")
             }
         }
         test {
