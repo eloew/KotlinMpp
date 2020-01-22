@@ -25,7 +25,7 @@ fun Application.module(testing: Boolean = false) {
     install(FreeMarker) {
         templateLoader = ClassTemplateLoader(this::class.java.classLoader, "templates")
     }
-
+    install(CallLogging)
     install(Authentication) {
         basic("myBasicAuth") {
             realm = "Ktor Server"
