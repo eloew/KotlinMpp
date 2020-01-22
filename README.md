@@ -44,4 +44,6 @@ eployment).
 * Issues: [Problems.txt](app/src/main/assets/Problems.txt)
 
 * Resources
-    * React [christian-draeger/kotlin-react-gradle-example](https://github.com/christian-draeger/kotlin-react-gradle-example)
+    * React 
+        * [christian-draeger/kotlin-react-gradle-example](https://github.com/christian-draeger/kotlin-react-gradle-example)
+        * [snrostov/kotlin-full-stack-application-demo](https://github.com/snrostov/kotlin-full-stack-application-demo)
