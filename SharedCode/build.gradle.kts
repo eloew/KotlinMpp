@@ -154,3 +154,4 @@ val copyToStaticWeb = tasks.register<Copy>("copyToStaticWeb") {
 
 tasks.getByName("assemble").dependsOn(packForXcode)
 tasks.getByName("assemble").dependsOn(copyToStaticWeb)
+tasks.getByName("publishJsPublicationToMavenLocal").mustRunAfter("build")
