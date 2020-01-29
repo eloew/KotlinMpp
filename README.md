@@ -36,6 +36,7 @@ eployment).
 
 * Build 
     * Run Gradle SharedCode Task 'build'
+    * ktor war file. Open Terminal at [backend/KotlinMppKtor](backend/KotlinMppKtor) ./gradlew war
 
 * Testing
     * Start backend project in inteliJ
