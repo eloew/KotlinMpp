@@ -7,7 +7,7 @@
 * Kotlin Multi Platorm/Ktor application:
   * [Android](app) &mdash; Android App.
   * [iOS](native/KotlinMpp) &mdash; iPhone App.
-  * [backend](backend/KotlinMpp) &mdash; Ktor Server App.
+  * [backend](backend/KotlinMppKtor) &mdash; Ktor Server App.
   * [js static web](js/KotlinMppStaticWeb)
   * [js React](js/KotlinMppReact)
 eployment).
@@ -48,3 +48,4 @@ eployment).
     * React 
         * [christian-draeger/kotlin-react-gradle-example](https://github.com/christian-draeger/kotlin-react-gradle-example)
         * [snrostov/kotlin-full-stack-application-demo](https://github.com/snrostov/kotlin-full-stack-application-demo)
+        * [war](https://ktor.io/servers/deploy/packing/war.html)
