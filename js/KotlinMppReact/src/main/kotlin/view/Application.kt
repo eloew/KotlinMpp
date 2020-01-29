@@ -8,6 +8,7 @@ import kotlinx.coroutines.launch
 import react.*
 import react.dom.div
 import react.dom.h2
+import react.dom.label
 import kotlin.random.Random
 
 
@@ -31,6 +32,7 @@ class ApplicationComponent : RComponent<ApplicationProps, RState>() {
                     attrs.coroutineScope = props.coroutineScope
                 }
             }
+
         }
     }
 

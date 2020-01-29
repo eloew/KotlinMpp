@@ -40,6 +40,7 @@ eployment).
 * Testing
     * Start backend project in inteliJ
     * Run Android and/or iOS app
+    * or run [ReactApp](js/KotlinMppReact) with ./gradlew run --continuous
 
 * Issues: [Problems.txt](app/src/main/assets/Problems.txt)
 

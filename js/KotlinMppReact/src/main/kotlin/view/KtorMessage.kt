@@ -2,6 +2,7 @@ package view
 
 import com.erl.data.MessageRequest
 import com.erl.data.MessageResponse
+import com.erl.mpp.mobile.ConstantsShared
 import com.erl.mpp.mobile.api.KotlinMppApiJs
 import kotlin.browser.document
 
@@ -13,12 +14,14 @@ import kotlinx.coroutines.*
 import org.kotlin.mpp.mobile.KotlinMppApi
 import org.kotlin.mpp.mobile.presentation.MainPresenter
 import org.kotlin.mpp.mobile.presentation.MainView
+import services.KotlinMaapApiService
 import view.ApplicationProps
 import kotlin.coroutines.CoroutineContext
 
 
 class KtorMessageState : RState {
     var message: String = ""
+
 }
 
 class KtorMessage : RComponent<ApplicationProps, KtorMessageState>(), MainView, CoroutineScope {
@@ -30,15 +33,23 @@ class KtorMessage : RComponent<ApplicationProps, KtorMessageState>(), MainView, 
     override val coroutineContext: CoroutineContext
         get() = props.coroutineScope.coroutineContext
 
-    //val api = KotlinMppApiJs(coroutineContext)
-    val presenter = MainPresenter(uiContext = coroutineContext, view = this)
+
+    //val presenter = MainPresenter(uiContext = coroutineContext, view = this)
 
     override fun componentDidMount() {
         props.coroutineScope.launch {
-            val value = getApplicationScreenMessage( "Kotlin Rocks with React & KTOR" )
+            val inputMessage = "Kotlin Rocks with React & KTOR"
+            var value = ""
+            //val value = getApplicationScreenMessage( "Kotlin Rocks with React & KTOR" )
             //var value = getApplicationScreeMessage(coroutineContext, "Kotlin Rocks with React & KTOR")
             //var value = createApplicationScreenMessage()
+
+            //val api = KotlinMppApiJs(props.coroutineScope.coroutineContext)
             //var value = api.getApplicationScreenMessage(coroutineContext, "Kotlin Rocks with React & KTOR")
+
+            val api = KotlinMaapApiService(coroutineContext)
+            value = api.getMessage(inputMessage)
+
             setState {
                 message = value
             }
@@ -51,6 +62,7 @@ class KtorMessage : RComponent<ApplicationProps, KtorMessageState>(), MainView, 
             h1 {
                + state.message
             }
+
         }
     }
 

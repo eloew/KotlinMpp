@@ -71,7 +71,9 @@
   MainPresenter.prototype.constructor = MainPresenter;
   function ConstantsShared() {
     ConstantsShared_instance = this;
-    this.Endpoint = 'http://10.9.52.109:8080';
+    this.Endpoint = 'http://10.9.233.133:8081';
+    this.root = 'kotlinmpp/';
+    this.messageCall = 'getApplicationScreenMessage';
   }
   ConstantsShared.$metadata$ = {
     kind: Kind_OBJECT,
@@ -105,22 +107,6 @@
   }
   function get_fullUrl($receiver) {
     return $receiver.protocol.name + '://' + get_hostWithPortIfRequired($receiver) + get_fullPath($receiver);
-  }
-  function Constants() {
-    Constants_instance = this;
-    this.root = 'kotlinmpp/';
-  }
-  Constants.$metadata$ = {
-    kind: Kind_OBJECT,
-    simpleName: 'Constants',
-    interfaces: []
-  };
-  var Constants_instance = null;
-  function Constants_getInstance() {
-    if (Constants_instance === null) {
-      new Constants();
-    }
-    return Constants_instance;
   }
   function post$lambda($receiver) {
     return Unit;
@@ -676,18 +662,14 @@
     get: ConstantsShared_getInstance
   });
   _.getHttpClient = getHttpClient;
-  var package$api = _.api || (_.api = {});
-  Object.defineProperty(package$api, 'Constants', {
-    get: Constants_getInstance
-  });
   $$importsForInline$$['ktor-ktor-client-core'] = $module$ktor_ktor_client_core;
   var package$org = _.org || (_.org = {});
   var package$kotlin = package$org.kotlin || (package$org.kotlin = {});
   var package$mpp_0 = package$kotlin.mpp || (package$kotlin.mpp = {});
   var package$mobile_0 = package$mpp_0.mobile || (package$mpp_0.mobile = {});
   package$mobile_0.KotlinMppApi = KotlinMppApi;
-  var package$api_0 = package$mobile.api || (package$mobile.api = {});
-  package$api_0.KotlinMppApiJs = KotlinMppApiJs;
+  var package$api = package$mobile.api || (package$mobile.api = {});
+  package$api.KotlinMppApiJs = KotlinMppApiJs;
   package$mobile.createApplicationScreenMessage = createApplicationScreenMessage;
   package$mobile.getApplicationScreenMessage_61zpoe$ = getApplicationScreenMessage;
   Object.defineProperty(MessageRequest, 'Companion', {

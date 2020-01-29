@@ -1,2 +1,1 @@
-rootProject.name = "KotlinMpp"
-
+rootProject.name = "KotlinMppReact"

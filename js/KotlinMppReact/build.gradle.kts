@@ -27,7 +27,7 @@ kotlin {
             dependencies {
                 implementation(kotlin("test-js"))
                 implementation(kotlin("stdlib-js"))
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-js:0.10.0")
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-js:0.11.1")
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-js:1.2.0")
                 implementation(npm("core-js", "^2.0.0"))
                 implementation(npm("kotlinx-html", "0.6.12"))
