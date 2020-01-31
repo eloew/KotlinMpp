@@ -60,8 +60,8 @@ class MainActivity : AppCompatActivity(), MainView, CoroutineScope {
 
     override fun showError(message: String) {
         runOnUiThread {
-            longToast(message)
-            ktorText.text = message
+            //longToast(message)
+            //ktorText.text = message
         }
         Log.d(TAG, message)
     }

@@ -9,3 +9,8 @@ Run
 
 Android App
 Execute tasks: publishJsPublicationToMavenLocal in project KotlinMpp/SharedCode
+
+
+Deploy:
+run browserWebpack
+

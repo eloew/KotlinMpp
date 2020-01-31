@@ -71,8 +71,8 @@
   MainPresenter.prototype.constructor = MainPresenter;
   function ConstantsShared() {
     ConstantsShared_instance = this;
-    this.Endpoint = 'http://10.9.233.133:8081';
-    this.root = 'kotlinmpp/';
+    this.Endpoint = 'http://192.168.1.67:8081';
+    this.root = 'kotlinmppktor';
     this.messageCall = 'getApplicationScreenMessage';
   }
   ConstantsShared.$metadata$ = {
@@ -117,7 +117,7 @@
   }
   function KotlinMppApi$getApplicationScreenMessage$lambda(this$KotlinMppApi, closure$request) {
     return function ($receiver) {
-      this$KotlinMppApi.apiUrl_0($receiver, 'kotlinmpp/getApplicationScreenMessage');
+      this$KotlinMppApi.apiUrl_0($receiver, 'kotlinmppktorgetApplicationScreenMessage');
       $receiver.method = HttpMethod.Companion.Post;
       contentType($receiver, ContentType.Application.Json);
       $receiver.body = closure$request;

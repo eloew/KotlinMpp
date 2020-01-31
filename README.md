@@ -29,6 +29,10 @@ eployment).
         * [Task; copyToStaticWeb](SharedCode/build.gradle.kts) copies js includes to KotlinMppStaticWebApp
     * React
         * Execute tasks: publishJsPublicationToMavenLocal in project KotlinMpp/SharedCode
+        * Execute task browserWebpack in [KotlinMppReact](js/KotlinMppReact)
+            * copy js/KotlinMppReact/build/distributions/KotlinMppReact.js 
+              & js/KotlinMppReact/src/main/resources/index.html]() for deployment
+            
 
 * Setup
     * Endpoint

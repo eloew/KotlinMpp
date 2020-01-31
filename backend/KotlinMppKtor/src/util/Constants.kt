@@ -1,5 +1,5 @@
 package com.erl.util
 
 object Constants {
-    const val root = "/kotlinmpp"
+    const val root = "/kotlinmppktor"
 }
