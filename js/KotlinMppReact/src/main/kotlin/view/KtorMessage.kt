@@ -42,7 +42,6 @@ class KtorMessage : RComponent<ApplicationProps, KtorMessageState>(), MainView, 
                 endpoint =  "${ConstantsShared.Endpoint}/${ConstantsShared.root}/${ConstantsShared.messageCall}"
             }
             val inputMessage = "Kotlin Rocks with React & KTOR"
-            var value = ""
             //val value = getApplicationScreenMessage( "Kotlin Rocks with React & KTOR" )
             //var value = getApplicationScreeMessage(coroutineContext, "Kotlin Rocks with React & KTOR")
             //var value = createApplicationScreenMessage()
@@ -51,7 +50,7 @@ class KtorMessage : RComponent<ApplicationProps, KtorMessageState>(), MainView, 
             //var value = api.getApplicationScreenMessage(coroutineContext, "Kotlin Rocks with React & KTOR")
 
             val api = KotlinMaapApiService(coroutineContext)
-            value = api.getMessage(inputMessage)
+            val value = api.getMessage(inputMessage)
 
             setState {
                 message = value
