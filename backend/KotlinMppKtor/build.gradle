@@ -1,18 +1,31 @@
 buildscript {
+    ext.tomcat_plugin_version = "2.4.2"
+    ext.tomcat_version = "9.0.4"
+
     repositories {
         jcenter()
     }
     
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "com.bmuschko:gradle-tomcat-plugin:$tomcat_plugin_version"
     }
 }
 
 apply plugin: 'kotlin'
 apply plugin: 'application'
+apply plugin: "war"
+apply plugin: "com.bmuschko.tomcat"
 
-group 'com.erl'
-version '0.0.1'
+webAppDirName = "webapp"
+tomcat {
+    contextPath = "/"
+    httpProtocol = "org.apache.coyote.http11.Http11Nio2Protocol"
+    ajpProtocol  = "org.apache.coyote.ajp.AjpNio2Protocol"
+}
+
+group 'kotlinmppktor'
+version '1.0.0'
 mainClassName = "io.ktor.server.netty.EngineMain"
 
 sourceSets {
@@ -29,6 +42,9 @@ repositories {
 }
 
 dependencies {
+    tomcat "org.apache.tomcat.embed:tomcat-embed-core:$tomcat_version",
+            "org.apache.tomcat.embed:tomcat-embed-jasper:$tomcat_version"
+
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     compile "io.ktor:ktor-server-netty:$ktor_version"
     compile "ch.qos.logback:logback-classic:$logback_version"
@@ -38,4 +54,6 @@ dependencies {
     compile "io.ktor:ktor-auth:$ktor_version"
     compile "io.ktor:ktor-gson:$ktor_version"
     testCompile "io.ktor:ktor-server-tests:$ktor_version"
+
+    compile "io.ktor:ktor-server-servlet:$ktor_version"
 }

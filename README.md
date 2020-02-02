@@ -7,7 +7,7 @@
 * Kotlin Multi Platorm/Ktor application:
   * [Android](app) &mdash; Android App.
   * [iOS](native/KotlinMpp) &mdash; iPhone App.
-  * [backend](backend/KotlinMpp) &mdash; Ktor Server App.
+  * [backend](backend/KotlinMppKtor) &mdash; Ktor Server App.
   * [js static web](js/KotlinMppStaticWeb)
   * [js React](js/KotlinMppReact)
 eployment).
@@ -29,6 +29,10 @@ eployment).
         * [Task; copyToStaticWeb](SharedCode/build.gradle.kts) copies js includes to KotlinMppStaticWebApp
     * React
         * Execute tasks: publishJsPublicationToMavenLocal in project KotlinMpp/SharedCode
+        * Execute task browserWebpack in [KotlinMppReact](js/KotlinMppReact)
+            * copy js/KotlinMppReact/build/distributions/KotlinMppReact.js 
+              & js/KotlinMppReact/src/main/resources/index.html]() for deployment
+            
 
 * Setup
     * Endpoint
@@ -36,6 +40,7 @@ eployment).
 
 * Build 
     * Run Gradle SharedCode Task 'build'
+    * ktor war file. Open Terminal at [backend/KotlinMppKtor](backend/KotlinMppKtor) ./gradlew war
 
 * Testing
     * Start backend project in inteliJ
@@ -48,3 +53,4 @@ eployment).
     * React 
         * [christian-draeger/kotlin-react-gradle-example](https://github.com/christian-draeger/kotlin-react-gradle-example)
         * [snrostov/kotlin-full-stack-application-demo](https://github.com/snrostov/kotlin-full-stack-application-demo)
+        * [war](https://ktor.io/servers/deploy/packing/war.html)

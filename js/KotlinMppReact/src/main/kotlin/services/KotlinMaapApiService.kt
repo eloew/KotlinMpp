@@ -15,9 +15,9 @@ import kotlin.js.json
 class KotlinMaapApiService(private val coroutineContext: CoroutineContext) {
 
     suspend fun getMessage(message: String): String {
-        val url = "${ConstantsShared.Endpoint}/${ConstantsShared.root}${ConstantsShared.messageCall}"
+        val url = "${ConstantsShared.Endpoint}/${ConstantsShared.root}/${ConstantsShared.messageCall}"
         console.log(url)
-        val response = post("${ConstantsShared.Endpoint}/${ConstantsShared.root}${ConstantsShared.messageCall}", message)
+        val response = post(url, message)
         val messageResponse =  Json.parse(MessageResponse.serializer(), response)
         return messageResponse.message
     }
