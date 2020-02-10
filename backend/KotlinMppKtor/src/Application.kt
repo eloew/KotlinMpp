@@ -23,8 +23,7 @@ fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
 @Suppress("unused") // Referenced in application.conf
 @kotlin.jvm.JvmOverloads
 fun Application.module(testing: Boolean = false) {
-    install(CORS)
-    {
+    install(CORS) {
         method(HttpMethod.Options)
         method(HttpMethod.Get)
         method(HttpMethod.Post)
@@ -55,18 +54,22 @@ fun Application.module(testing: Boolean = false) {
     }
 
     routing {
+        route("/kotlinmppktor") {
+            // Static feature. Try to access `/static/ktor_logo.svg`
+            static("/static") {
+                resources("static")
+            }
+        }
+        trace { application.log.trace(it.buildText()) }
+
         get("/") {
-            call.respondText("HELLO WORLD!", contentType = ContentType.Text.Plain)
+            call.respondText("HELLO WORLD! KotlinMppKtor", contentType = ContentType.Text.Plain)
         }
 
         get("/html-freemarker") {
             call.respond(FreeMarkerContent("index.ftl", mapOf("data" to IndexData(listOf(1, 2, 3))), ""))
         }
 
-        // Static feature. Try to access `/static/ktor_logo.svg`
-        static("/static") {
-            resources("static")
-        }
 
         install(StatusPages) {
             exception<AuthenticationException> { cause ->
@@ -89,9 +92,14 @@ fun Application.module(testing: Boolean = false) {
             call.respond(mapOf("hello" to "world"))
         }
 
+
         post("${Constants.root}/getApplicationScreenMessage") {
             val request = call.receive<MessageRequest>()
             call.respond(MessageResponse(message = request.message))  //"Kotlin Rocks on Ktor!"
+        }
+
+        get("${Constants.root}/test") {
+            call.respond(MessageResponse(message = "zztop"))
         }
 
 

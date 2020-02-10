@@ -2,7 +2,8 @@ package com.erl.mpp.mobile
 
 object ConstantsShared {
 
-     const val Endpoint = " http://40.122.112.113"  //Azure server
+    //const val Endpoint = " http://10.9.162.94:8081"  //Work
+    const val Endpoint = " http://10.110.48.253:8091"  //Work Test server
 
 
     const val root = "kotlinmppktor"
