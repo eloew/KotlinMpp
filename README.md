@@ -46,6 +46,19 @@ eployment).
     * Start backend project in inteliJ
     * Run Android and/or iOS app
     * or run [ReactApp](js/KotlinMppReact) with ./gradlew run --continuous
+    
+* Deployment
+    * Check Endpoint in [ConstantsShared](SharedCode/src/commonMain/kotlin/ConstantsShared.kt)
+    * Run Gradle Task SharedCode build
+    * Run Gradle Task SharedCode publishing publicJsPublicationToMavenLocal
+    * KotlinMppKtor ./gradlew war
+    * Rename backend/KotlinMppKtor/build/libs kotlinmppktor.1.0.0.war to kotlinmppktor.war
+    * copy kotlinmppktor.war to deployment directory
+    * KotolinMppReact gradle task clean
+    * KotlinMppReact gradle task browserDevelopmentWebpack
+        * copy build/distributions to deployment diretory
+    
+    
 
 * Issues: [Problems.txt](app/src/main/assets/Problems.txt)
 

@@ -10,42 +10,35 @@ import io.ktor.routing.*
 import io.ktor.http.*
 import freemarker.cache.*
 import io.ktor.freemarker.*
-import io.ktor.content.*
-import io.ktor.http.content.*
 import io.ktor.features.*
 import io.ktor.auth.*
-//import io.ktor.client.features.auth.basic.*
 import io.ktor.gson.*
-import java.time.Duration
+import io.ktor.http.content.*
+import java.io.File
+import java.lang.Exception
+import kotlin.collections.toList
+
+
 
 fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
 
 @Suppress("unused") // Referenced in application.conf
 @kotlin.jvm.JvmOverloads
 fun Application.module(testing: Boolean = false) {
-    install(CORS) {
-        method(HttpMethod.Options)
-        method(HttpMethod.Get)
-        method(HttpMethod.Post)
-        method(HttpMethod.Put)
-        method(HttpMethod.Delete)
-        method(HttpMethod.Patch)
-        header(HttpHeaders.AccessControlAllowHeaders)
-        header(HttpHeaders.ContentType)
-        header(HttpHeaders.AccessControlAllowOrigin)
-        allowCredentials = true
-        anyHost()
-        maxAge = Duration.ofDays(1)
-    }
+
     install(FreeMarker) {
         templateLoader = ClassTemplateLoader(this::class.java.classLoader, "templates")
     }
     install(CallLogging)
+
+
     install(Authentication) {
         basic("myBasicAuth") {
             realm = "Ktor Server"
-            validate { if (it.name == "test" && it.password == "password") UserIdPrincipal(it.name) else null }
+            validate { if (it.name == "zaphod" && it.password == "Hou3ston@1") UserIdPrincipal(it.name) else null }
         }
+
+
     }
 
     install(ContentNegotiation) {
@@ -54,23 +47,7 @@ fun Application.module(testing: Boolean = false) {
     }
 
     routing {
-        route("/kotlinmppktor") {
-            // Static feature. Try to access `/static/ktor_logo.svg`
-            static("/static") {
-                resources("static")
-            }
-        }
         trace { application.log.trace(it.buildText()) }
-
-        get("/") {
-            call.respondText("HELLO WORLD! KotlinMppKtor", contentType = ContentType.Text.Plain)
-        }
-
-        get("/html-freemarker") {
-            call.respond(FreeMarkerContent("index.ftl", mapOf("data" to IndexData(listOf(1, 2, 3))), ""))
-        }
-
-
         install(StatusPages) {
             exception<AuthenticationException> { cause ->
                 call.respond(HttpStatusCode.Unauthorized)
@@ -80,31 +57,50 @@ fun Application.module(testing: Boolean = false) {
             }
 
         }
+        // Static feature. Try to access `/static/ktor_logo.svg`
+        route("/kotlinmppktor") {
+            static("/static") {
+                resources("static")
 
-        authenticate("myBasicAuth") {
-            get("/protected/route/basic") {
-                val principal = call.principal<UserIdPrincipal>()!!
-                call.respondText("Hello ${principal.name}")
+            }
+            static("json") {
+                staticRootFolder = File("/json") // Establishes a root folder
+                file("rewardType.json")
+            }
+
+            get("/") {
+                call.respondText("Hello World, KotlinMppKtor")
+            }
+
+            post("/getApplicationScreenMessage") {
+                val request = call.receive<MessageRequest>()
+                call.respond(MessageResponse(message = request.message))  //"Kotlin Rocks on Ktor!"
+            }
+
+            get("/test") {
+                call.respond(MessageResponse(message = "zztop"))
             }
         }
-
-        get("/json/gson") {
-            call.respond(mapOf("hello" to "world"))
-        }
-
-
-        post("${Constants.root}/getApplicationScreenMessage") {
-            val request = call.receive<MessageRequest>()
-            call.respond(MessageResponse(message = request.message))  //"Kotlin Rocks on Ktor!"
-        }
-
-        get("${Constants.root}/test") {
-            call.respond(MessageResponse(message = "zztop"))
-        }
-
-
     }
+
 }
+
+fun Application.TurnOffLogger() {
+    //https://stackoverflow.com/questions/30137564/how-to-disable-mongodb-java-driver-logging
+    val logMan = java.util.logging.LogManager.getLogManager()
+
+    logMan.loggerNames.toList().forEach {
+        print("${it}\n")
+    }
+
+    //logMan.getLogger("org.mongodb.driver.protocol.command").setLevel(java.util.logging.Level.OFF);
+    //logMan.getLogger("org.mongodb.driver.cluster").setLevel(java.util.logging.Level.OFF);
+}
+
+
+val Application.log get() = environment.log
+
+var baseUserId = ""
 
 data class IndexData(val items: List<Int>)
 
