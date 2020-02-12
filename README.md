@@ -29,9 +29,9 @@ eployment).
         * [Task; copyToStaticWeb](SharedCode/build.gradle.kts) copies js includes to KotlinMppStaticWebApp
     * React
         * Execute tasks: publishJsPublicationToMavenLocal in project KotlinMpp/SharedCode
-        * Execute task browserWebpack in [KotlinMppReact](js/KotlinMppReact)
-            * copy js/KotlinMppReact/build/distributions/KotlinMppReact.js 
-              & js/KotlinMppReact/src/main/resources/index.html]() for deployment
+        * Execute task browserDevelopmentWebpack in [KotlinMppReact](js/KotlinMppReact)
+            * copy js/KotlinMppReact/build/distributions
+                    KotlinMppReact.js & index.html]() for deployment
             
 
 * Setup
@@ -54,3 +54,4 @@ eployment).
         * [christian-draeger/kotlin-react-gradle-example](https://github.com/christian-draeger/kotlin-react-gradle-example)
         * [snrostov/kotlin-full-stack-application-demo](https://github.com/snrostov/kotlin-full-stack-application-demo)
         * [war](https://ktor.io/servers/deploy/packing/war.html)
+        * [Building Web Applications with React and Kotlin/JS](https://play.kotlinlang.org/hands-on/Building%20Web%20Applications%20with%20React%20and%20Kotlin%20JS/03_A_First_Static_Page)

@@ -40,6 +40,11 @@ class ApplicationComponent : RComponent<ApplicationProps, RState>() {
             }
             +"Hello world!"
         }
+        h2 {
+            child(KtorMessage::class) {
+                attrs.coroutineScope = props.coroutineScope
+            }
+        }
     }
 
 }

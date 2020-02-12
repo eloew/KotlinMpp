@@ -10,6 +10,8 @@ repositories {
     maven("https://kotlin.bintray.com/kotlin-js-wrappers/")
     mavenCentral()
     jcenter()
+
+    mavenLocal()
 }
 
 dependencies {
@@ -34,6 +36,9 @@ dependencies {
 
     //Coroutines (chapter 8)
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-common:1.3.3")
+
+
+    implementation("com.erl:SharedCode-js:1.0.0")
 }
 
 kotlin.target.browser { }
