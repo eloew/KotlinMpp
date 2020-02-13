@@ -6,8 +6,9 @@ import react.*
 import react.dom.div
 import react.dom.h2
 import kotlinx.css.*
+import react.dom.img
 import styled.*
-
+import styled.StyledComponents.css
 
 
 interface ApplicationProps : RProps {
@@ -27,6 +28,20 @@ class ApplicationComponent : RComponent<ApplicationProps, RState>() {
         get() = props.coroutineScope.coroutineContext
 
     override fun RBuilder.render() {
+        styledImg {
+            css {
+                width  =  50.px
+                height = 50.px
+            }
+            attrs {
+
+                src  = "Kotlin-logo.svg"
+            }
+        }
+        img {
+
+
+        }
         div {
             h2 {
                 +"Hello KotlinMpp React"

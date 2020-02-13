@@ -11,7 +11,7 @@ import io.ktor.http.*
 class KotlinMppApi(var endPoint: String, var client: HttpClient) {
 
     suspend fun getApplicationScreenMessage(request: MessageRequest): MessageResponse = client.post {
-        apiUrl("${ConstantsShared.root}/getApplicationScreenMessage")
+        apiUrl("${ConstantsShared.root}/${ConstantsShared.messageCall}")
         method = HttpMethod.Post
         contentType(ContentType.Application.Json)
         body = request

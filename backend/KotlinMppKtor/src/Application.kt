@@ -63,10 +63,6 @@ fun Application.module(testing: Boolean = false) {
             call.respond(FreeMarkerContent("index.ftl", mapOf("data" to IndexData(listOf(1, 2, 3))), ""))
         }
 
-        // Static feature. Try to access `/static/ktor_logo.svg`
-        static("/static") {
-            resources("static")
-        }
 
         install(StatusPages) {
             exception<AuthenticationException> { cause ->
@@ -78,20 +74,21 @@ fun Application.module(testing: Boolean = false) {
 
         }
 
-        authenticate("myBasicAuth") {
-            get("/protected/route/basic") {
-                val principal = call.principal<UserIdPrincipal>()!!
-                call.respondText("Hello ${principal.name}")
-            }
-        }
 
-        get("/json/gson") {
+        get("${Constants.root}/json/gson") {
             call.respond(mapOf("hello" to "world"))
         }
+
+        //http:://localhost/kotlinmppktor/getApplicationScreenMessage
 
         post("${Constants.root}/getApplicationScreenMessage") {
             val request = call.receive<MessageRequest>()
             call.respond(MessageResponse(message = request.message))  //"Kotlin Rocks on Ktor!"
+        }
+
+        //http://0.0.0.0:8081/kotlinmppktor/applicationScreenMessage
+        get("${Constants.root}/applicationScreenMessage") {
+            call.respond(MessageResponse(message = "ZZTOP: "))
         }
 
 
