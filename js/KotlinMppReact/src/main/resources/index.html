@@ -3,9 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>KotlinMppReact</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="manifest" href="manifest.json">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Weather PWA">
+    <link rel="apple-touch-icon" href="/images/icons/icon-152x152.png">
+
+    <meta name="description" content="A sample pwa app">
+
+    <meta name="theme-color" content="#2F3BA2" />
 </head>
 <body>
 <div id="root"></div>
 <script src="KotlinMppReact.js"></script>
+<script src="install.js"></script>
+<script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/service-worker.js')
+                .then((reg) => {
+                    console.log('Service worker registered.', reg);
+                });
+        });
+    }
+</script>
 </body>
 </html>
