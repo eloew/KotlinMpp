@@ -1,11 +1,19 @@
 package com.erl.mpp.mobile
 
 object ConstantsShared {
-
-    //const val Endpoint = " http://10.9.162.94:8081"  //Work
-    const val Endpoint = " http://10.110.48.253:8091"  //Work Test server
+    const val httpProtocol = "http"
+    const val ip = "192.168.1.67"
+    const val port = "8081"
 
 
     const val root = "kotlinmppktor"
     const val messageCall = "getApplicationScreenMessage"
+
+
+    fun getEndPoint(): String {
+        if (port.isNotEmpty())
+            return "${httpProtocol}://${ip}:${port}"
+        else
+            return "${httpProtocol}://${ip}"
+    }
 }

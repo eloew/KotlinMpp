@@ -14,7 +14,7 @@ class MainPresenter(uiContext: CoroutineContext,
     fun getApplicationScreenMessage(request: MessageRequest) {
         var response = MessageResponse("")
         launch {
-            val api = KotlinMppApi(ConstantsShared.Endpoint, getHttpClient())
+            val api = KotlinMppApi(ConstantsShared.getEndPoint(), getHttpClient())
             response = api.getApplicationScreenMessage(request)
         }.invokeOnCompletion {
             view.showApplicationScreenMessage(response)
