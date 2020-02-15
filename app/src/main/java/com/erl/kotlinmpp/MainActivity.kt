@@ -7,11 +7,9 @@ import com.erl.data.MessageRequest
 import com.erl.data.MessageResponse
 import kotlinx.android.synthetic.main.activity_main.*
 import com.erl.mpp.mobile.createApplicationScreenMessage
-import com.erl.mpp.mobile.getApplicationScreenMessage
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
 import org.jetbrains.anko.longToast
 import org.kotlin.mpp.mobile.presentation.MainPresenter
 import org.kotlin.mpp.mobile.presentation.MainView

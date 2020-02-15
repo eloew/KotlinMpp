@@ -3,6 +3,12 @@ package com.erl.mpp.mobile
 import com.erl.data.MessageRequest
 import com.erl.data.MessageResponse
 import getHttpClient
+import io.ktor.client.HttpClient
+import io.ktor.client.request.get
+import io.ktor.client.request.post
+import io.ktor.http.ContentType
+import io.ktor.http.HttpMethod
+import io.ktor.http.contentType
 import kotlinx.coroutines.launch
 import org.kotlin.mpp.mobile.KotlinMppApi
 import kotlin.coroutines.CoroutineContext
@@ -15,8 +21,22 @@ fun createApplicationScreenMessage() : String {
 
 
 suspend fun getApplicationScreenMessage(message: String): String {
-    val api = KotlinMppApi(ConstantsShared.Endpoint, getHttpClient())
-    val response = api.getApplicationScreenMessage(MessageRequest(message))
-    return response.message
+    try {
+        val api = KotlinMppApi(ConstantsShared.getEndPoint(), getHttpClient())
+        val response = api.getApplicationScreenMessage(MessageRequest(message))
+        return response.message
+    } catch (e: Exception) {
+        return e.message.toString()
+    }
+}
 
+
+suspend fun test1(): String {
+    try {
+        val client = getHttpClient()
+        val respone = client.get<MessageResponse>("${ConstantsShared.getEndPoint()}/${ConstantsShared.root}/test")
+        return respone.message
+    } catch (e: Exception) {
+        return e.message.toString()
+    }
 }

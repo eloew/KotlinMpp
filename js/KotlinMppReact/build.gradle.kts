@@ -39,6 +39,9 @@ dependencies {
 
 
     implementation("com.erl:SharedCode-js:1.0.0")
+
+    implementation(npm("text-encoding"))
+
 }
 
 kotlin.target.browser { }

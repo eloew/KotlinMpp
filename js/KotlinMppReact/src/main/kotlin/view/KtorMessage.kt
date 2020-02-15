@@ -3,16 +3,12 @@ package view
 import com.erl.data.MessageRequest
 import com.erl.data.MessageResponse
 import com.erl.mpp.mobile.ConstantsShared
-import com.erl.mpp.mobile.api.KotlinMppApiJs
-import kotlin.browser.document
 
 import react.*
 import react.dom.*
 import com.erl.mpp.mobile.createApplicationScreenMessage
 import com.erl.mpp.mobile.getApplicationScreenMessage
 import kotlinx.coroutines.*
-import org.kotlin.mpp.mobile.KotlinMppApi
-import org.kotlin.mpp.mobile.presentation.MainPresenter
 import org.kotlin.mpp.mobile.presentation.MainView
 import view.ApplicationProps
 import kotlin.coroutines.CoroutineContext
@@ -59,33 +55,13 @@ class KtorMessage : RComponent<ApplicationProps, KtorMessageState>(), MainView, 
                 }
             }
             setState {
-                endpoint = "${ConstantsShared.Endpoint}/${ConstantsShared.root}/${ConstantsShared.messageCall}"
+                endpoint = "${ConstantsShared.getEndPoint()}/${ConstantsShared.root}/${ConstantsShared.messageCall}"
             }
-            /*
-            val api = KotlinMaapApiService(coroutineContext)
-            setState {
-                endpoint =  api.endpoint
-            }
-            var value = api.getMessage(inputMessage)
-
-            setState {
-                message = value
-            }
-
-
-            value = api.test()
-
-            setState {
-                test = value
-            }
-
-             */
         }
     }
 
     override fun RBuilder.render() {
         div("App-header") {
-            label { + state.endpoint}
             br {  }
             label { +"From SharedCode:" }
             h1 {

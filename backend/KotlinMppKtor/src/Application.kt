@@ -74,21 +74,13 @@ fun Application.module(testing: Boolean = false) {
 
         }
 
-
-        get("${Constants.root}/json/gson") {
-            call.respond(mapOf("hello" to "world"))
-        }
-
-        //http:://localhost/kotlinmppktor/getApplicationScreenMessage
-
         post("${Constants.root}/getApplicationScreenMessage") {
             val request = call.receive<MessageRequest>()
-            call.respond(MessageResponse(message = request.message))  //"Kotlin Rocks on Ktor!"
+            call.respond(MessageResponse(message = request.message))
         }
 
-        //http://0.0.0.0:8081/kotlinmppktor/applicationScreenMessage
-        get("${Constants.root}/applicationScreenMessage") {
-            call.respond(MessageResponse(message = "ZZTOP: "))
+        get("${Constants.root}/test") {
+            call.respond(MessageResponse(message = "zztop"))
         }
 
 
