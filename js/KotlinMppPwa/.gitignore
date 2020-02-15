@@ -1,5 +1,0 @@
-# Project exclude paths
-/.gradle/
-/build/
-.idea
-/build/js/packages/kotlin-react-gradle-example/kotlin/
