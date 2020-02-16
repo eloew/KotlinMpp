@@ -1,6 +1,6 @@
 {
-  "name": "Weather",
-  "short_name": "Weather",
+  "name": "KotlinMppReact",
+  "short_name": "KotlinMppReact",
   "icons": [{
     "src": "/images/icons/icon-128x128.png",
     "sizes": "128x128",

@@ -1,19 +1,17 @@
 package view
 
 import kotlinx.coroutines.CoroutineScope
-
-import react.*
-import react.dom.div
-import react.dom.h2
 import kotlinx.css.*
-import kotlinx.html.ButtonType
-import kotlinx.html.id
 import kotlinx.html.hidden
+import kotlinx.html.id
+import org.w3c.dom.css.CSSMarginRule
+import react.RBuilder
+import react.RComponent
+import react.RProps
+import react.RState
 import react.dom.button
-import react.dom.img
+import react.dom.h2
 import styled.*
-import styled.StyledComponents.css
-import react.dom.button
 
 interface ApplicationProps : RProps {
     var coroutineScope: CoroutineScope
@@ -48,6 +46,7 @@ class ApplicationComponent : RComponent<ApplicationProps, RState>() {
                 padding(vertical = 16.px)
 
                 backgroundColor = Color.green
+                verticalAlign = VerticalAlign.middle
             }
             styledImg {
                 css {
@@ -59,6 +58,9 @@ class ApplicationComponent : RComponent<ApplicationProps, RState>() {
                     src  = "Kotlin-logo.svg"
                 }
             }
+
+
+
             button(classes = "install") {
                 attrs {
                     id = "butInstall"
@@ -67,20 +69,9 @@ class ApplicationComponent : RComponent<ApplicationProps, RState>() {
             }
 
         }
+        h2{ +"Hello KotlinMpp React"}
 
-        div {
-            h2 {
-                +"Hello KotlinMpp React"
-            }
-        }
-        styledDiv {
-            css {
-                padding(vertical = 16.px)
 
-                backgroundColor = Color.green
-            }
-            +"Hello world!"
-        }
         h2 {
             child(KtorMessage::class) {
                 attrs.coroutineScope = props.coroutineScope
