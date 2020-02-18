@@ -4,7 +4,7 @@
 ## Run
 * ./gradlew run --continuous
 
-## PWA
+## PWA parts
 
 pwa is all javascript. 
 TODO: Convert service-worker.js to kotlin
@@ -23,6 +23,9 @@ TODO: Convert service-worker.js to kotlin
     
     
 ### Resources
+[snrostov/kotlin-full-stack-application-demo](https://github.com/snrostov/kotlin-full-stack-application-demo)
+[kotlin-hands-on/web-app-react-kotlin-js-gradle](https://github.com/kotlin-hands-on/web-app-react-kotlin-js-gradle)
+[snrostov/kotlin-full-stack-application-demo](https://github.com/snrostov/kotlin-full-stack-application-demo/tree/snrostov/kotlin-1.3.40/client)
 [Your First Progressive Web App](https://codelabs.developers.google.com/codelabs/your-first-pwapp/#0)
 [googlecodelabs/your-first-pwapp](https://github.com/googlecodelabs/your-first-pwapp)
 
