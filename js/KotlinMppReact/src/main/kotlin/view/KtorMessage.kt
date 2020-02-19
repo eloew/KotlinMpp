@@ -71,12 +71,12 @@ class KtorMessage : RComponent<ApplicationProps, KtorMessageState>(), MainView, 
             h1 {
                 + state.message
             }
+            /*
+                       br {  }
+                       label { +"Endpoint: " }
+                       label { +state.endpoint }
 
-            br {  }
-            label { +"Endpoint: " }
-            label { +state.endpoint }
-       /*
-             */
+                        */
         }
     }
 

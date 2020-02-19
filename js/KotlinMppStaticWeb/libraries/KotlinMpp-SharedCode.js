@@ -74,16 +74,16 @@
   function ConstantsShared() {
     ConstantsShared_instance = this;
     this.httpProtocol = 'http';
-    this.ip = '10.110.48.253';
-    this.port = '8091';
+    this.ip = '127.0.0.1';
+    this.port = '8081';
     this.root = 'kotlinmppktor/kotlinmppktor';
     this.messageCall = 'getApplicationScreenMessage';
   }
   ConstantsShared.prototype.getEndPoint = function () {
     if (this.port.length > 0)
-      return 'http://10.110.48.253:8091';
+      return 'http://127.0.0.1:8081';
     else
-      return 'http://10.110.48.253';
+      return 'http://127.0.0.1';
   };
   ConstantsShared.$metadata$ = {
     kind: Kind_OBJECT,
