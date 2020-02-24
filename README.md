@@ -14,7 +14,7 @@ eployment).
 
 * Versions.
     * IntelliJ Ultimate 2019.3
-    * Android Studio 3.5.1
+    * Android Studio 3.5.3
     * Gradle 5.4.1
     * Kotlin 1.3.61
     * Kotlin Coroutines 1.3.2

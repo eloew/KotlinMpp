@@ -73,17 +73,17 @@
   MainPresenter.prototype.constructor = MainPresenter;
   function ConstantsShared() {
     ConstantsShared_instance = this;
-    this.httpProtocol = 'http';
-    this.ip = '127.0.0.1';
-    this.port = '8081';
+    this.httpProtocol = 'https';
+    this.ip = 'bluenote.azurewebsites.net';
+    this.port = '';
     this.root = 'kotlinmppktor/kotlinmppktor';
     this.messageCall = 'getApplicationScreenMessage';
   }
   ConstantsShared.prototype.getEndPoint = function () {
     if (this.port.length > 0)
-      return 'http://127.0.0.1:8081';
+      return 'https://bluenote.azurewebsites.net:';
     else
-      return 'http://127.0.0.1';
+      return 'https://bluenote.azurewebsites.net';
   };
   ConstantsShared.$metadata$ = {
     kind: Kind_OBJECT,

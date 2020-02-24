@@ -11,3 +11,4 @@ COPY manifest.json /usr/share/nginx/html
 COPY offline.html /usr/share/nginx/html
 COPY service-worker.js /usr/share/nginx/html
 COPY images /usr/share/nginx/html/images
+COPY favicon.ico /usr/share/nginx/html
