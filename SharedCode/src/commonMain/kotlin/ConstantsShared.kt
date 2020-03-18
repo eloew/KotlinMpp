@@ -1,8 +1,9 @@
 package com.erl.mpp.mobile
 
 object ConstantsShared {
+
     const val httpProtocol = "http"
-    const val ip = "192.168.1.67"
+    const val ip = "127.0.0.1"
     const val port = "8081"
 
 

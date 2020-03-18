@@ -1,8 +1,8 @@
 (function (root, factory) {
   if (typeof define === 'function' && define.amd)
-    define(['exports', 'kotlin', 'ktor-ktor-client-json', 'ktor-ktor-client-serialization', 'ktor-ktor-client-core', 'ktor-ktor-http', 'kotlinx-coroutines-core', 'kotlinx-serialization-kotlinx-serialization-runtime'], factory);
+    define(['exports', 'kotlin', 'ktor-ktor-client-json', 'ktor-ktor-client-serialization', 'ktor-ktor-client-core', 'ktor-ktor-http', 'kotlinx-serialization-kotlinx-serialization-runtime', 'kotlinx-coroutines-core'], factory);
   else if (typeof exports === 'object')
-    factory(module.exports, require('kotlin'), require('ktor-ktor-client-json'), require('ktor-ktor-client-serialization'), require('ktor-ktor-client-core'), require('ktor-ktor-http'), require('kotlinx-coroutines-core'), require('kotlinx-serialization-kotlinx-serialization-runtime'));
+    factory(module.exports, require('kotlin'), require('ktor-ktor-client-json'), require('ktor-ktor-client-serialization'), require('ktor-ktor-client-core'), require('ktor-ktor-http'), require('kotlinx-serialization-kotlinx-serialization-runtime'), require('kotlinx-coroutines-core'));
   else {
     if (typeof kotlin === 'undefined') {
       throw new Error("Error loading module 'KotlinMpp-SharedCode'. Its dependency 'kotlin' was not found. Please, check whether 'kotlin' is loaded prior to 'KotlinMpp-SharedCode'.");
@@ -19,15 +19,15 @@
     if (typeof this['ktor-ktor-http'] === 'undefined') {
       throw new Error("Error loading module 'KotlinMpp-SharedCode'. Its dependency 'ktor-ktor-http' was not found. Please, check whether 'ktor-ktor-http' is loaded prior to 'KotlinMpp-SharedCode'.");
     }
-    if (typeof this['kotlinx-coroutines-core'] === 'undefined') {
-      throw new Error("Error loading module 'KotlinMpp-SharedCode'. Its dependency 'kotlinx-coroutines-core' was not found. Please, check whether 'kotlinx-coroutines-core' is loaded prior to 'KotlinMpp-SharedCode'.");
-    }
     if (typeof this['kotlinx-serialization-kotlinx-serialization-runtime'] === 'undefined') {
       throw new Error("Error loading module 'KotlinMpp-SharedCode'. Its dependency 'kotlinx-serialization-kotlinx-serialization-runtime' was not found. Please, check whether 'kotlinx-serialization-kotlinx-serialization-runtime' is loaded prior to 'KotlinMpp-SharedCode'.");
     }
-    root['KotlinMpp-SharedCode'] = factory(typeof this['KotlinMpp-SharedCode'] === 'undefined' ? {} : this['KotlinMpp-SharedCode'], kotlin, this['ktor-ktor-client-json'], this['ktor-ktor-client-serialization'], this['ktor-ktor-client-core'], this['ktor-ktor-http'], this['kotlinx-coroutines-core'], this['kotlinx-serialization-kotlinx-serialization-runtime']);
+    if (typeof this['kotlinx-coroutines-core'] === 'undefined') {
+      throw new Error("Error loading module 'KotlinMpp-SharedCode'. Its dependency 'kotlinx-coroutines-core' was not found. Please, check whether 'kotlinx-coroutines-core' is loaded prior to 'KotlinMpp-SharedCode'.");
+    }
+    root['KotlinMpp-SharedCode'] = factory(typeof this['KotlinMpp-SharedCode'] === 'undefined' ? {} : this['KotlinMpp-SharedCode'], kotlin, this['ktor-ktor-client-json'], this['ktor-ktor-client-serialization'], this['ktor-ktor-client-core'], this['ktor-ktor-http'], this['kotlinx-serialization-kotlinx-serialization-runtime'], this['kotlinx-coroutines-core']);
   }
-}(this, function (_, Kotlin, $module$ktor_ktor_client_json, $module$ktor_ktor_client_serialization, $module$ktor_ktor_client_core, $module$ktor_ktor_http, $module$kotlinx_coroutines_core, $module$kotlinx_serialization_kotlinx_serialization_runtime) {
+}(this, function (_, Kotlin, $module$ktor_ktor_client_json, $module$ktor_ktor_client_serialization, $module$ktor_ktor_client_core, $module$ktor_ktor_http, $module$kotlinx_serialization_kotlinx_serialization_runtime, $module$kotlinx_coroutines_core) {
   'use strict';
   var $$importsForInline$$ = _.$$importsForInline$$ || (_.$$importsForInline$$ = {});
   var Kind_OBJECT = Kotlin.Kind.OBJECT;
@@ -44,10 +44,10 @@
   var ContentType = $module$ktor_ktor_http.io.ktor.http.ContentType;
   var contentType = $module$ktor_ktor_http.io.ktor.http.contentType_41kwpe$;
   var http = $module$ktor_ktor_http.io.ktor.http;
-  var toString = Kotlin.toString;
   var header = $module$ktor_ktor_client_core.io.ktor.client.request.header_xadl6p$;
   var takeFrom = $module$ktor_ktor_http.io.ktor.http.takeFrom_jl1sg7$;
   var Kind_CLASS = Kotlin.Kind.CLASS;
+  var takeFrom_0 = $module$ktor_ktor_client_core.$$importsForInline$$['ktor-ktor-http'].io.ktor.http.takeFrom_jl1sg7$;
   var utils = $module$ktor_ktor_client_core.io.ktor.client.utils;
   var url = $module$ktor_ktor_client_core.io.ktor.client.request.url_3rzbk2$;
   var HttpMethod_0 = $module$ktor_ktor_client_core.$$importsForInline$$['ktor-ktor-http'].io.ktor.http.HttpMethod;
@@ -56,7 +56,8 @@
   var throwCCE = Kotlin.throwCCE;
   var call_0 = $module$ktor_ktor_client_core.io.ktor.client.call;
   var TypeInfo_init = $module$ktor_ktor_client_core.io.ktor.client.call.TypeInfo;
-  var CoroutineScope = $module$kotlinx_coroutines_core.kotlinx.coroutines.CoroutineScope;
+  var toString = Kotlin.toString;
+  var Exception = Kotlin.kotlin.Exception;
   var SerialClassDescImpl = $module$kotlinx_serialization_kotlinx_serialization_runtime.kotlinx.serialization.internal.SerialClassDescImpl;
   var UnknownFieldException = $module$kotlinx_serialization_kotlinx_serialization_runtime.kotlinx.serialization.UnknownFieldException;
   var internal = $module$kotlinx_serialization_kotlinx_serialization_runtime.kotlinx.serialization.internal;
@@ -64,6 +65,7 @@
   var MissingFieldException = $module$kotlinx_serialization_kotlinx_serialization_runtime.kotlinx.serialization.MissingFieldException;
   var Kind_INTERFACE = Kotlin.Kind.INTERFACE;
   var Job = $module$kotlinx_coroutines_core.kotlinx.coroutines.Job_5dx9e$;
+  var CoroutineScope = $module$kotlinx_coroutines_core.kotlinx.coroutines.CoroutineScope;
   var AbstractCoroutineContextElement = Kotlin.kotlin.coroutines.AbstractCoroutineContextElement;
   var CoroutineExceptionHandler = $module$kotlinx_coroutines_core.kotlinx.coroutines.CoroutineExceptionHandler;
   var launch = $module$kotlinx_coroutines_core.kotlinx.coroutines.launch_s496o7$;
@@ -71,10 +73,18 @@
   MainPresenter.prototype.constructor = MainPresenter;
   function ConstantsShared() {
     ConstantsShared_instance = this;
-    this.Endpoint = ' http://10.9.162.94:8081';
-    this.root = 'kotlinmppktor';
+    this.httpProtocol = 'https';
+    this.ip = 'bluenote.azurewebsites.net';
+    this.port = '';
+    this.root = 'kotlinmppktor/kotlinmppktor';
     this.messageCall = 'getApplicationScreenMessage';
   }
+  ConstantsShared.prototype.getEndPoint = function () {
+    if (this.port.length > 0)
+      return 'https://bluenote.azurewebsites.net:';
+    else
+      return 'https://bluenote.azurewebsites.net';
+  };
   ConstantsShared.$metadata$ = {
     kind: Kind_OBJECT,
     simpleName: 'ConstantsShared',
@@ -111,13 +121,15 @@
   function post$lambda($receiver) {
     return Unit;
   }
+  function get$lambda($receiver) {
+    return Unit;
+  }
   function KotlinMppApi(endPoint, client) {
     this.endPoint = endPoint;
     this.client = client;
   }
-  function KotlinMppApi$getApplicationScreenMessage$lambda(this$KotlinMppApi, closure$request) {
+  function KotlinMppApi$getApplicationScreenMessage$lambda(closure$request) {
     return function ($receiver) {
-      this$KotlinMppApi.apiUrl_0($receiver, 'kotlinmppktor/getApplicationScreenMessage');
       $receiver.method = HttpMethod.Companion.Post;
       contentType($receiver, ContentType.Application.Json);
       $receiver.body = closure$request;
@@ -143,15 +155,17 @@
         switch (this.state_0) {
           case 0:
             var $receiver_0 = this.$this.client;
-            var host;
-            var body;
-            host = 'localhost';
-            body = utils.EmptyContent;
+            var urlString = ConstantsShared_getInstance().getEndPoint() + '/' + ConstantsShared_getInstance().root + '/getApplicationScreenMessage';
+            var host_0;
+            var body_0;
+            host_0 = 'localhost';
+            body_0 = utils.EmptyContent;
             var $receiver_1 = new HttpRequestBuilder_init();
-            url($receiver_1, 'http', host, 0, '/');
+            url($receiver_1, 'http', host_0, 0, '/');
             $receiver_1.method = HttpMethod_0.Companion.Post;
-            $receiver_1.body = body;
-            KotlinMppApi$getApplicationScreenMessage$lambda(this.$this, this.local$request)($receiver_1);
+            $receiver_1.body = body_0;
+            takeFrom_0($receiver_1.url, urlString);
+            KotlinMppApi$getApplicationScreenMessage$lambda(this.local$request)($receiver_1);
             this.state_0 = 2;
             this.result_0 = call($receiver_0, $receiver_1, this);
             if (this.result_0 === COROUTINE_SUSPENDED)
@@ -193,67 +207,59 @@
     else
       return instance.doResume(null);
   };
-  KotlinMppApi.prototype.json_0 = function ($receiver) {
-    contentType($receiver, ContentType.Application.Json);
-  };
-  function KotlinMppApi$apiUrl$lambda(this$KotlinMppApi, closure$path) {
-    return function ($receiver, it) {
-      takeFrom($receiver, this$KotlinMppApi.endPoint);
-      $receiver.encodedPath = closure$path;
+  function KotlinMppApi$test$lambda(this$KotlinMppApi) {
+    return function ($receiver) {
+      this$KotlinMppApi.apiUrl_0($receiver, 'kotlinmppktor/kotlinmppktor/test');
+      $receiver.method = HttpMethod.Companion.Get;
+      contentType($receiver, ContentType.Application.Json);
       return Unit;
     };
   }
-  KotlinMppApi.prototype.apiUrl_0 = function ($receiver, path, userId) {
-    if (userId === void 0)
-      userId = null;
-    if (userId != null) {
-      header($receiver, http.HttpHeaders.Authorization, 'Bearer ' + toString(userId));
-    }
-    header($receiver, http.HttpHeaders.CacheControl, 'no-cache');
-    $receiver.url_6yzzjr$(KotlinMppApi$apiUrl$lambda(this, path));
-  };
-  KotlinMppApi.$metadata$ = {
-    kind: Kind_CLASS,
-    simpleName: 'KotlinMppApi',
-    interfaces: []
-  };
-  function KotlinMppApiJs(coroutineContext) {
-    this.coroutineContext_5h7xap$_0 = coroutineContext;
-  }
-  Object.defineProperty(KotlinMppApiJs.prototype, 'coroutineContext', {
-    get: function () {
-      return this.coroutineContext_5h7xap$_0;
-    }
-  });
-  function Coroutine$getApplicationScreenMessage_lbtghb$($this, coroutineContext_0, message_0, continuation_0) {
+  function Coroutine$test($this, continuation_0) {
     CoroutineImpl.call(this, continuation_0);
     this.exceptionState_0 = 1;
     this.$this = $this;
-    this.local$message = message_0;
   }
-  Coroutine$getApplicationScreenMessage_lbtghb$.$metadata$ = {
+  Coroutine$test.$metadata$ = {
     kind: Kotlin.Kind.CLASS,
     simpleName: null,
     interfaces: [CoroutineImpl]
   };
-  Coroutine$getApplicationScreenMessage_lbtghb$.prototype = Object.create(CoroutineImpl.prototype);
-  Coroutine$getApplicationScreenMessage_lbtghb$.prototype.constructor = Coroutine$getApplicationScreenMessage_lbtghb$;
-  Coroutine$getApplicationScreenMessage_lbtghb$.prototype.doResume = function () {
+  Coroutine$test.prototype = Object.create(CoroutineImpl.prototype);
+  Coroutine$test.prototype.constructor = Coroutine$test;
+  Coroutine$test.prototype.doResume = function () {
     do
       try {
         switch (this.state_0) {
           case 0:
-            var api = new KotlinMppApi(ConstantsShared_getInstance().Endpoint, getHttpClient());
+            var $receiver_0 = this.$this.client;
+            var host;
+            var body;
+            host = 'localhost';
+            body = utils.EmptyContent;
+            var $receiver_1 = new HttpRequestBuilder_init();
+            url($receiver_1, 'http', host, 0, '/');
+            $receiver_1.method = HttpMethod_0.Companion.Get;
+            $receiver_1.body = body;
+            KotlinMppApi$test$lambda(this.$this)($receiver_1);
             this.state_0 = 2;
-            this.result_0 = api.getApplicationScreenMessage_agc8b4$(new MessageRequest(this.local$message), this);
+            this.result_0 = call($receiver_0, $receiver_1, this);
             if (this.result_0 === COROUTINE_SUSPENDED)
               return COROUTINE_SUSPENDED;
             continue;
           case 1:
             throw this.exception_0;
           case 2:
-            var response = this.result_0;
-            return response.message;
+            var tmp$_0;
+            this.state_0 = 3;
+            this.result_0 = this.result_0.receive_jo9acv$(new TypeInfo_init(getKClass(MessageResponse), call_0.JsType), this);
+            if (this.result_0 === COROUTINE_SUSPENDED)
+              return COROUTINE_SUSPENDED;
+            continue;
+          case 3:
+            this.result_0 = Kotlin.isType(tmp$_0 = this.result_0, MessageResponse) ? tmp$_0 : throwCCE();
+            this.result_0;
+            return this.result_0;
           default:this.state_0 = 1;
             throw new Error('State Machine Unreachable execution');
         }
@@ -270,24 +276,41 @@
       }
      while (true);
   };
-  KotlinMppApiJs.prototype.getApplicationScreenMessage_lbtghb$ = function (coroutineContext_0, message_0, continuation_0, suspended) {
-    var instance = new Coroutine$getApplicationScreenMessage_lbtghb$(this, coroutineContext_0, message_0, continuation_0);
+  KotlinMppApi.prototype.test = function (continuation_0, suspended) {
+    var instance = new Coroutine$test(this, continuation_0);
     if (suspended)
       return instance;
     else
       return instance.doResume(null);
   };
-  KotlinMppApiJs.$metadata$ = {
-    kind: Kind_CLASS,
-    simpleName: 'KotlinMppApiJs',
-    interfaces: [CoroutineScope]
+  KotlinMppApi.prototype.json_0 = function ($receiver) {
+    contentType($receiver, ContentType.Application.Json);
   };
+  function KotlinMppApi$apiUrl$lambda(this$KotlinMppApi, closure$path) {
+    return function ($receiver, it) {
+      takeFrom($receiver, this$KotlinMppApi.endPoint);
+      $receiver.encodedPath = closure$path;
+      return Unit;
+    };
+  }
+  KotlinMppApi.prototype.apiUrl_0 = function ($receiver, path) {
+    header($receiver, http.HttpHeaders.CacheControl, 'no-cache');
+    $receiver.url_6yzzjr$(KotlinMppApi$apiUrl$lambda(this, path));
+  };
+  KotlinMppApi.$metadata$ = {
+    kind: Kind_CLASS,
+    simpleName: 'KotlinMppApi',
+    interfaces: []
+  };
+  function get$lambda_0($receiver) {
+    return Unit;
+  }
   function createApplicationScreenMessage() {
     return 'Kotlin Rocks on ' + platformName();
   }
   function Coroutine$getApplicationScreenMessage(message_0, continuation_0) {
     CoroutineImpl.call(this, continuation_0);
-    this.exceptionState_0 = 1;
+    this.exceptionState_0 = 5;
     this.local$message = message_0;
   }
   Coroutine$getApplicationScreenMessage.$metadata$ = {
@@ -302,23 +325,39 @@
       try {
         switch (this.state_0) {
           case 0:
-            var api = new KotlinMppApi(ConstantsShared_getInstance().Endpoint, getHttpClient());
-            this.state_0 = 2;
+            this.exceptionState_0 = 2;
+            var api = new KotlinMppApi(ConstantsShared_getInstance().getEndPoint(), getHttpClient());
+            this.state_0 = 1;
             this.result_0 = api.getApplicationScreenMessage_agc8b4$(new MessageRequest(this.local$message), this);
             if (this.result_0 === COROUTINE_SUSPENDED)
               return COROUTINE_SUSPENDED;
             continue;
           case 1:
-            throw this.exception_0;
-          case 2:
             var response = this.result_0;
             return response.message;
-          default:this.state_0 = 1;
+          case 2:
+            this.exceptionState_0 = 5;
+            var e = this.exception_0;
+            if (Kotlin.isType(e, Exception)) {
+              return toString(e.message);
+            }
+             else {
+              throw e;
+            }
+
+          case 3:
+            this.state_0 = 4;
+            continue;
+          case 4:
+            return;
+          case 5:
+            throw this.exception_0;
+          default:this.state_0 = 5;
             throw new Error('State Machine Unreachable execution');
         }
       }
        catch (e) {
-        if (this.state_0 === 1) {
+        if (this.state_0 === 5) {
           this.exceptionState_0 = this.state_0;
           throw e;
         }
@@ -331,6 +370,92 @@
   };
   function getApplicationScreenMessage(message_0, continuation_0, suspended) {
     var instance = new Coroutine$getApplicationScreenMessage(message_0, continuation_0);
+    if (suspended)
+      return instance;
+    else
+      return instance.doResume(null);
+  }
+  function Coroutine$test1(continuation_0) {
+    CoroutineImpl.call(this, continuation_0);
+    this.exceptionState_0 = 6;
+  }
+  Coroutine$test1.$metadata$ = {
+    kind: Kotlin.Kind.CLASS,
+    simpleName: null,
+    interfaces: [CoroutineImpl]
+  };
+  Coroutine$test1.prototype = Object.create(CoroutineImpl.prototype);
+  Coroutine$test1.prototype.constructor = Coroutine$test1;
+  Coroutine$test1.prototype.doResume = function () {
+    do
+      try {
+        switch (this.state_0) {
+          case 0:
+            this.exceptionState_0 = 3;
+            var client = getHttpClient();
+            var urlString = ConstantsShared_getInstance().getEndPoint() + '/' + ConstantsShared_getInstance().root + '/test';
+            var host_0;
+            var body_0;
+            host_0 = 'localhost';
+            body_0 = utils.EmptyContent;
+            var $receiver_1 = new HttpRequestBuilder_init();
+            url($receiver_1, 'http', host_0, 0, '/');
+            $receiver_1.method = HttpMethod_0.Companion.Get;
+            $receiver_1.body = body_0;
+            takeFrom_0($receiver_1.url, urlString);
+            get$lambda_0($receiver_1);
+            this.state_0 = 1;
+            this.result_0 = call(client, $receiver_1, this);
+            if (this.result_0 === COROUTINE_SUSPENDED)
+              return COROUTINE_SUSPENDED;
+            continue;
+          case 1:
+            var tmp$_0;
+            this.state_0 = 2;
+            this.result_0 = this.result_0.receive_jo9acv$(new TypeInfo_init(getKClass(MessageResponse), call_0.JsType), this);
+            if (this.result_0 === COROUTINE_SUSPENDED)
+              return COROUTINE_SUSPENDED;
+            continue;
+          case 2:
+            this.result_0 = Kotlin.isType(tmp$_0 = this.result_0, MessageResponse) ? tmp$_0 : throwCCE();
+            this.result_0;
+            var respone = this.result_0;
+            return respone.message;
+          case 3:
+            this.exceptionState_0 = 6;
+            var e = this.exception_0;
+            if (Kotlin.isType(e, Exception)) {
+              return toString(e.message);
+            }
+             else {
+              throw e;
+            }
+
+          case 4:
+            this.state_0 = 5;
+            continue;
+          case 5:
+            return;
+          case 6:
+            throw this.exception_0;
+          default:this.state_0 = 6;
+            throw new Error('State Machine Unreachable execution');
+        }
+      }
+       catch (e) {
+        if (this.state_0 === 6) {
+          this.exceptionState_0 = this.state_0;
+          throw e;
+        }
+         else {
+          this.state_0 = this.exceptionState_0;
+          this.exception_0 = e;
+        }
+      }
+     while (true);
+  };
+  function test1(continuation_0, suspended) {
+    var instance = new Coroutine$test1(continuation_0);
     if (suspended)
       return instance;
     else
@@ -594,7 +719,7 @@
       try {
         switch (this.state_0) {
           case 0:
-            var api = new KotlinMppApi(ConstantsShared_getInstance().Endpoint, getHttpClient());
+            var api = new KotlinMppApi(ConstantsShared_getInstance().getEndPoint(), getHttpClient());
             this.state_0 = 2;
             this.result_0 = api.getApplicationScreenMessage_agc8b4$(this.local$closure$request, this);
             if (this.result_0 === COROUTINE_SUSPENDED)
@@ -668,10 +793,9 @@
   var package$mpp_0 = package$kotlin.mpp || (package$kotlin.mpp = {});
   var package$mobile_0 = package$mpp_0.mobile || (package$mpp_0.mobile = {});
   package$mobile_0.KotlinMppApi = KotlinMppApi;
-  var package$api = package$mobile.api || (package$mobile.api = {});
-  package$api.KotlinMppApiJs = KotlinMppApiJs;
   package$mobile.createApplicationScreenMessage = createApplicationScreenMessage;
   package$mobile.getApplicationScreenMessage_61zpoe$ = getApplicationScreenMessage;
+  package$mobile.test1 = test1;
   Object.defineProperty(MessageRequest, 'Companion', {
     get: MessageRequest$Companion_getInstance
   });

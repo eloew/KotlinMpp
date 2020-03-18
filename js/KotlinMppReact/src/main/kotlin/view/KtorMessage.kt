@@ -45,7 +45,7 @@ class KtorMessage : RComponent<ApplicationProps, KtorMessageState>(), MainView, 
             setState {
                 messageSharedCode = value
             }
-
+            /*
             launch() {
                 value = getApplicationScreenMessage( "Kotlin Rocks with React & KTOR" )
                 //val api = KotlinMppApiJs(props.coroutineScope.coroutineContext)
@@ -54,6 +54,8 @@ class KtorMessage : RComponent<ApplicationProps, KtorMessageState>(), MainView, 
                     message = value
                 }
             }
+
+             */
             setState {
                 endpoint = "${ConstantsShared.getEndPoint()}/${ConstantsShared.root}/${ConstantsShared.messageCall}"
             }
@@ -71,9 +73,12 @@ class KtorMessage : RComponent<ApplicationProps, KtorMessageState>(), MainView, 
             h1 {
                 + state.message
             }
-            br {  }
-            label { +"Endpoint: " }
-            label { +state.endpoint }
+            /*
+                       br {  }
+                       label { +"Endpoint: " }
+                       label { +state.endpoint }
+
+                        */
         }
     }
 
