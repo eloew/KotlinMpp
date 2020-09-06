@@ -13,16 +13,19 @@
 eployment).
 
 * Versions.
-    * IntelliJ Ultimate 2019.3
-    * Android Studio 3.5.3
-    * Gradle 5.4.1
+    * IntelliJ Ultimate 2020.1.3
+    * Android Studio 4.0.1
+    * Gradle 6.1.1
+    
+    
+    
     * Kotlin 1.3.61
     * Kotlin Coroutines 1.3.2
     * Kotlin Serialization 0.14.0
     * Ktor 1.2.6
     
-    * XCode 11.3
-    * macOS 10.14.6
+    * XCode 11.6
+    * macOS 10.15.5
 
 * JavaScript 
     * Static Web App
@@ -46,6 +49,8 @@ eployment).
     * Start backend project in inteliJ
     * Run Android and/or iOS app
     * or run [ReactApp](js/KotlinMppReact) with ./gradlew run --continuous
+    * or KotlinMppStaticWeb
+        * Right click index.html > Run index.html
     
 * Deployment
     * Check Endpoint in [ConstantsShared](SharedCode/src/commonMain/kotlin/ConstantsShared.kt)

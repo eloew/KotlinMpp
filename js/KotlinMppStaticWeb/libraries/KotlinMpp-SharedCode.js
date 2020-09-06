@@ -73,17 +73,17 @@
   MainPresenter.prototype.constructor = MainPresenter;
   function ConstantsShared() {
     ConstantsShared_instance = this;
-    this.httpProtocol = 'https';
-    this.ip = 'bluenote.azurewebsites.net';
-    this.port = '';
-    this.root = 'kotlinmppktor/kotlinmppktor';
+    this.httpProtocol = 'http';
+    this.ip = '10.0.0.32';
+    this.port = '8081';
+    this.root = 'kotlinmppktor';
     this.messageCall = 'getApplicationScreenMessage';
   }
   ConstantsShared.prototype.getEndPoint = function () {
     if (this.port.length > 0)
-      return 'https://bluenote.azurewebsites.net:';
+      return 'http://10.0.0.32:8081';
     else
-      return 'https://bluenote.azurewebsites.net';
+      return 'http://10.0.0.32';
   };
   ConstantsShared.$metadata$ = {
     kind: Kind_OBJECT,
@@ -209,7 +209,7 @@
   };
   function KotlinMppApi$test$lambda(this$KotlinMppApi) {
     return function ($receiver) {
-      this$KotlinMppApi.apiUrl_0($receiver, 'kotlinmppktor/kotlinmppktor/test');
+      this$KotlinMppApi.apiUrl_0($receiver, 'kotlinmppktor/test');
       $receiver.method = HttpMethod.Companion.Get;
       contentType($receiver, ContentType.Application.Json);
       return Unit;
