@@ -3,6 +3,7 @@ package org.kotlin.mpp.mobile.presentation
 import kotlinx.coroutines.*
 import kotlin.coroutines.*
 
+@Deprecated("")
 open class CoroutinePresenter(
     private val mainContext: CoroutineContext, // TODO: Use Dispatchers.Main instead when it will be supported on iOS
     private val baseView: BaseView
