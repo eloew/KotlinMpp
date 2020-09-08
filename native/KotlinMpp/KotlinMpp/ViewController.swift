@@ -41,9 +41,10 @@ class ViewController: UIViewController, MainView {
         view.addSubview(label)
         */
         
+        sharedCodeMessage.text = CommonKt.createApplicationScreenMessage()
+        
         ktorMessage.text = "Waiting on ktor..."
         activityIndicator.startAnimating()
-        sharedCodeMessage.text = CommonKt.createApplicationScreenMessage()
         presenter.getApplicationScreenMessage(request: MessageRequest(message: "Ktor Rocks on iOS"))
     }
 
