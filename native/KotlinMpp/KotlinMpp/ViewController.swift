@@ -19,12 +19,13 @@ class ViewController: UIViewController, MainView {
     //MARK: - Api
     
 
-    private lazy var presenter: MainPresenter = {
-        MainPresenter (
-            uiContext: UI() as KotlinCoroutineContext,
-            view: self
-        )
-    }()
+    lazy var adapter: NativeViewModel = NativeViewModel(
+        viewUpdate: { [weak self] summary in
+            self?.viewUpdate(message: summary)
+        }, errorUpdate: { [weak self] errorMessage in
+            self?.errorUpdate(for: errorMessage)
+        }
+    )
     
     //MARK: Override
     
@@ -45,9 +46,22 @@ class ViewController: UIViewController, MainView {
         
         ktorMessage.text = "Waiting on ktor..."
         activityIndicator.startAnimating()
-        presenter.getApplicationScreenMessage(request: MessageRequest(message: "Ktor Rocks on iOS"))
+        adapter.getKtorMessage(message: "Ktor Rocks on iOS")
+        
     }
 
+    private func viewUpdate(message: String) {
+        print("response message: \(message)")
+        ktorMessage.text = message
+        activityIndicator.stopAnimating()
+    }
+    
+     private func errorUpdate(for errorMessage: String) {
+        print("MainView.showError String: \(errorMessage)")
+        ktorMessage.text = errorMessage
+        activityIndicator.stopAnimating()
+    }
+    
     //MARK: - MainView
     func showApplicationScreenMessage(response: MessageResponse) {
         print("response message: \(response.message)")

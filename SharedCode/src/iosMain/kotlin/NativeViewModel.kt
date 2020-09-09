@@ -1,13 +1,12 @@
 package com.erl.mpp.mobile
 
 import com.erl.mpp.mobile.models.Model
-import com.erl.mpp.mobile.models.ItemDataSummary
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlin.native.concurrent.ensureNeverFrozen
 
 class NativeViewModel(
-    private val viewUpdate: (ItemDataSummary) -> Unit,
+    private val viewUpdate: (String) -> Unit,
     private val errorUpdate: (String) -> Unit
 ) {
 
@@ -22,8 +21,15 @@ class NativeViewModel(
 
     fun getKtorMessage(message: String) {
         scope.launch {
-            model.getKtorMessage(message)?.let { errorString ->
-                errorUpdate(errorString)
+            try {
+                val value = model.getKtorMessage(message)
+                viewUpdate(value)
+            } catch (e: Exception) {
+                e.message?.let {
+                    errorUpdate(it)
+                } ?: run {
+                    errorUpdate("Unknown Error")
+                }
             }
         }
     }
