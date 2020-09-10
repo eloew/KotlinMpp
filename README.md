@@ -16,13 +16,13 @@ eployment).
     * IntelliJ Ultimate 2020.2
     * Android Studio 4.0.1
     * Gradle 6.1.1
+    * Kotlin 1.4.0
+    * Ktor 1.4.0  
     
     
-    
-    * Kotlin 1.3.61
     * Kotlin Coroutines 1.3.2
     * Kotlin Serialization 0.14.0
-    * Ktor 1.2.6
+
     
     * XCode 11.6
     * macOS 10.15.5

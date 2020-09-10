@@ -13,6 +13,8 @@ repositories {
 
     mavenLocal()
 }
+//get versions from
+//https://github.com/kotlin-hands-on/web-app-react-kotlin-js-gradle/blob/master/build.gradle.kts
 
 dependencies {
     implementation(kotlin("stdlib-js"))
