@@ -4,6 +4,7 @@ import kotlinx.coroutines.*
 import platform.darwin.*
 import kotlin.coroutines.*
 
+@Deprecated("")
 class UI : CoroutineDispatcher() {
     override fun dispatch(context: CoroutineContext, block: Runnable) {
         val queue = dispatch_get_main_queue()

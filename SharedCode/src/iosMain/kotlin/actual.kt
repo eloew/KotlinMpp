@@ -7,3 +7,7 @@ actual fun platformName(): String {
             " " +
             UIDevice.currentDevice.systemVersion
 }
+
+internal actual fun printThrowable(t: Throwable) {
+    t.printStackTrace()
+}

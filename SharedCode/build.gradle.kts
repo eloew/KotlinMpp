@@ -39,9 +39,9 @@ kotlin {
         //nodejs()
     }
     sourceSets {
-        val ktorVersion = "1.2.6"
-        val coroutinesVersion = "1.3.2"
-        val serializationVersion = "0.14.0"
+        val ktorVersion = "1.4.0"
+        val coroutinesVersion = "1.3.9-native-mt"
+        val serializationVersion = "1.0.0-RC"
         // Shortcuts
         fun kotlinx(module: String, version: String) = "org.jetbrains.kotlinx:kotlinx-$module:$version"
         fun coroutines(module: String = "") = kotlinx("coroutines-core$module", coroutinesVersion)
@@ -54,8 +54,8 @@ kotlin {
                 // Kotlin
                 implementation(kotlin("stdlib-common"))
                 // Kotlinx
-                implementation(coroutines("-common"))
-                implementation(serialization("-common"))
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
+                implementation("io.ktor:ktor-client-serialization:$serializationVersion")
                 // Ktor client
                 implementation(ktorClient("core"))
                 implementation(ktorClient("json"))
@@ -69,8 +69,8 @@ kotlin {
                 // Kotlin
                 implementation(kotlin("stdlib"))
                 // Kotlinx
-                implementation(coroutines())
-                implementation(serialization())
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion")
+                implementation("io.ktor:ktor-client-serialization-jvm:$serializationVersion")
                 // Ktor client
                 implementation(ktorClient("core-jvm"))
                 implementation(ktorClient("json-jvm"))
@@ -82,13 +82,15 @@ kotlin {
         val iosMain by getting {
             dependencies {
                 // Kotlinx
-                implementation(coroutines("-native"))
-                implementation(serialization("-native"))
+                //implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-native:$coroutinesVersion")
+                //implementation("io.ktor:ktor-client-serialization-native:$serializationVersion")
                 // Ktor client
-                implementation(ktorClient("core-native"))
-                implementation(ktorClient("json-native"))
-                implementation(ktorClient("serialization-native"))
-                implementation(ktorClient("ios"))
+                implementation("io.ktor:ktor-client-ios:$ktorVersion")
+
+                //implementation(ktorClient("core-native"))
+                //implementation(ktorClient("json-native"))
+                //implementation(ktorClient("serialization-native"))
+                //implementation(ktorClient("ios"))
             }
         }
 /**/
@@ -97,13 +99,15 @@ kotlin {
                 // Kotlin
                 implementation(kotlin("stdlib-js"))
                 // Kotlinx
-                implementation(coroutines("-js"))
-                implementation(serialization("-js"))
+                //implementation(coroutines("-js"))
+                //implementation(serialization("-js"))
                 // Ktor client
-                implementation(ktorClient("core-js"))
-                implementation(ktorClient("json-js"))
-                implementation(ktorClient("serialization-js"))
-                implementation(ktorClient("js"))
+                implementation("io.ktor:ktor-client-js:$ktorVersion")
+                implementation("io.ktor:ktor-client-serialization-js:$serializationVersion")
+                //implementation(ktorClient("core-js"))
+                //implementation(ktorClient("json-js"))
+                //implementation(ktorClient("serialization-js"))
+                //implementation(ktorClient("js"))
             }
         }
 

@@ -10,10 +10,7 @@ import io.ktor.http.*
 fun getHttpClient(): HttpClient {
     val client = HttpClient {
         install(JsonFeature) {
-            serializer = KotlinxSerializer().apply {
-                setMapper(MessageRequest::class, MessageRequest.serializer())
-                setMapper(MessageResponse::class, MessageResponse.serializer())
-            }
+            serializer = KotlinxSerializer()
         }
     }
     return client

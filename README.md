@@ -13,16 +13,15 @@
 eployment).
 
 * Versions.
-    * IntelliJ Ultimate 2019.3
-    * Android Studio 3.5.3
-    * Gradle 5.4.1
-    * Kotlin 1.3.61
-    * Kotlin Coroutines 1.3.2
-    * Kotlin Serialization 0.14.0
-    * Ktor 1.2.6
-    
-    * XCode 11.3
-    * macOS 10.14.6
+    * IntelliJ Ultimate 2020.2
+    * Android Studio 4.0.1
+    * Gradle 6.1.1
+    * Kotlin 1.4.0
+    * Ktor 1.4.0  
+    * Kotlin Coroutines 1.3.9-native-mt
+    * Kotlin Serialization 1.0.0-RC
+    * XCode 11.6
+    * macOS 10.15.5
 
 * JavaScript 
     * Static Web App
@@ -33,7 +32,6 @@ eployment).
             * copy js/KotlinMppReact/build/distributions
                     KotlinMppReact.js & index.html]() for deployment
             
-
 * Setup
     * Endpoint
         * [SharedCode](SharedCode/src/commonMain/kotlin/ConstantsShared.kt) - Change IP & Port
@@ -46,6 +44,8 @@ eployment).
     * Start backend project in inteliJ
     * Run Android and/or iOS app
     * or run [ReactApp](js/KotlinMppReact) with ./gradlew run --continuous
+    * or KotlinMppStaticWeb
+        * Right click index.html > Run index.html
     
 * Deployment
     * Check Endpoint in [ConstantsShared](SharedCode/src/commonMain/kotlin/ConstantsShared.kt)
@@ -67,3 +67,4 @@ eployment).
         * [war](https://ktor.io/servers/deploy/packing/war.html)
         * [Building Web Applications with React and Kotlin/JS](https://play.kotlinlang.org/hands-on/Building%20Web%20Applications%20with%20React%20and%20Kotlin%20JS/03_A_First_Static_Page)
         * others
+    * [KampKit](https://github.com/touchlab/KaMPKit)

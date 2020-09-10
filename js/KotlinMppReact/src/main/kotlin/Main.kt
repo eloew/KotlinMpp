@@ -1,9 +1,6 @@
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import react.dom.*
-import styled.StyledComponents.css
-import kotlinx.css.*
-import styled.*
 import view.ApplicationComponent
 import kotlin.browser.document
 import kotlin.coroutines.CoroutineContext

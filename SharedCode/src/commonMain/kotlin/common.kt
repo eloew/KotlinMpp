@@ -14,6 +14,7 @@ import org.kotlin.mpp.mobile.KotlinMppApi
 import kotlin.coroutines.CoroutineContext
 
 expect fun platformName(): String
+internal expect fun printThrowable(t: Throwable)  //From KampKit
 
 fun createApplicationScreenMessage() : String {
     return "Kotlin Rocks on ${platformName()}"
@@ -40,3 +41,4 @@ suspend fun test1(): String {
         return e.message.toString()
     }
 }
+

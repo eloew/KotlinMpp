@@ -8,6 +8,7 @@ import kotlinx.coroutines.launch
 import org.kotlin.mpp.mobile.KotlinMppApi
 import kotlin.coroutines.CoroutineContext
 
+@Deprecated("")
 class MainPresenter(uiContext: CoroutineContext,
                               private val view: MainView): CoroutinePresenter(uiContext, view)  {
 
