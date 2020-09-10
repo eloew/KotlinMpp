@@ -18,12 +18,8 @@ eployment).
     * Gradle 6.1.1
     * Kotlin 1.4.0
     * Ktor 1.4.0  
-    
-    
-    * Kotlin Coroutines 1.3.2
-    * Kotlin Serialization 0.14.0
-
-    
+    * Kotlin Coroutines 1.3.9-native-mt
+    * Kotlin Serialization 1.0.0-RC
     * XCode 11.6
     * macOS 10.15.5
 
@@ -36,7 +32,6 @@ eployment).
             * copy js/KotlinMppReact/build/distributions
                     KotlinMppReact.js & index.html]() for deployment
             
-
 * Setup
     * Endpoint
         * [SharedCode](SharedCode/src/commonMain/kotlin/ConstantsShared.kt) - Change IP & Port
