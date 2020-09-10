@@ -103,6 +103,7 @@ kotlin {
                 //implementation(serialization("-js"))
                 // Ktor client
                 implementation("io.ktor:ktor-client-js:$ktorVersion")
+                implementation("io.ktor:ktor-client-serialization-js:$serializationVersion")
                 //implementation(ktorClient("core-js"))
                 //implementation(ktorClient("json-js"))
                 //implementation(ktorClient("serialization-js"))

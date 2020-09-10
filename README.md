@@ -13,7 +13,7 @@
 eployment).
 
 * Versions.
-    * IntelliJ Ultimate 2020.1.3
+    * IntelliJ Ultimate 2020.2
     * Android Studio 4.0.1
     * Gradle 6.1.1
     

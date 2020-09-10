@@ -66,6 +66,7 @@
   var AbstractCoroutineContextElement = Kotlin.kotlin.coroutines.AbstractCoroutineContextElement;
   var CoroutineExceptionHandler = $module$kotlinx_coroutines_core.kotlinx.coroutines.CoroutineExceptionHandler;
   var launch = $module$kotlinx_coroutines_core.kotlinx.coroutines.launch_s496o7$;
+  var printStackTrace = Kotlin.kotlin.printStackTrace_dbl4o4$;
   MainPresenter.prototype = Object.create(CoroutinePresenter.prototype);
   MainPresenter.prototype.constructor = MainPresenter;
   function ConstantsShared() {
@@ -797,6 +798,64 @@
     simpleName: 'MessageResponse',
     interfaces: []
   };
+  function Model() {
+  }
+  function Coroutine$getKtorMessage_61zpoe$($this, message_0, continuation_0) {
+    CoroutineImpl.call(this, continuation_0);
+    this.exceptionState_0 = 1;
+    this.$this = $this;
+    this.local$message = message_0;
+  }
+  Coroutine$getKtorMessage_61zpoe$.$metadata$ = {
+    kind: Kotlin.Kind.CLASS,
+    simpleName: null,
+    interfaces: [CoroutineImpl]
+  };
+  Coroutine$getKtorMessage_61zpoe$.prototype = Object.create(CoroutineImpl.prototype);
+  Coroutine$getKtorMessage_61zpoe$.prototype.constructor = Coroutine$getKtorMessage_61zpoe$;
+  Coroutine$getKtorMessage_61zpoe$.prototype.doResume = function () {
+    do
+      try {
+        switch (this.state_0) {
+          case 0:
+            var request = new MessageRequest(this.local$message);
+            var api = new KotlinMppApi(ConstantsShared_getInstance().getEndPoint(), getHttpClient());
+            this.state_0 = 2;
+            this.result_0 = api.getApplicationScreenMessage_agc8b4$(request, this);
+            if (this.result_0 === COROUTINE_SUSPENDED)
+              return COROUTINE_SUSPENDED;
+            continue;
+          case 1:
+            throw this.exception_0;
+          case 2:
+            var response = this.result_0;
+            return response.message;
+          default:this.state_0 = 1;
+            throw new Error('State Machine Unreachable execution');
+        }
+      } catch (e) {
+        if (this.state_0 === 1) {
+          this.exceptionState_0 = this.state_0;
+          throw e;
+        } else {
+          this.state_0 = this.exceptionState_0;
+          this.exception_0 = e;
+        }
+      }
+     while (true);
+  };
+  Model.prototype.getKtorMessage_61zpoe$ = function (message_0, continuation_0, suspended) {
+    var instance = new Coroutine$getKtorMessage_61zpoe$(this, message_0, continuation_0);
+    if (suspended)
+      return instance;
+    else
+      return instance.doResume(null);
+  };
+  Model.$metadata$ = {
+    kind: Kind_CLASS,
+    simpleName: 'Model',
+    interfaces: []
+  };
   function BaseView() {
   }
   BaseView.$metadata$ = {
@@ -921,6 +980,9 @@
   function platformName() {
     return 'Javascript';
   }
+  function printThrowable(t) {
+    printStackTrace(t);
+  }
   var package$com = _.com || (_.com = {});
   var package$erl = package$com.erl || (package$com.erl = {});
   var package$mpp = package$erl.mpp || (package$erl.mpp = {});
@@ -955,6 +1017,8 @@
   });
   package$data.MessageResponse_init_q11ckg$ = MessageResponse_init;
   package$data.MessageResponse = MessageResponse;
+  var package$models = package$mobile.models || (package$mobile.models = {});
+  package$models.Model = Model;
   var package$presentation = package$mobile_0.presentation || (package$mobile_0.presentation = {});
   package$presentation.BaseView = BaseView;
   $$importsForInline$$['kotlinx-coroutines-core'] = $module$kotlinx_coroutines_core;
@@ -962,6 +1026,7 @@
   package$presentation.MainPresenter = MainPresenter;
   package$presentation.MainView = MainView;
   package$mobile.platformName = platformName;
+  package$mobile.printThrowable_8o0b5c$ = printThrowable;
   MessageRequest$$serializer.prototype.patch_h7kg3r$ = GeneratedSerializer.prototype.patch_h7kg3r$;
   MessageRequest$$serializer.prototype.typeParametersSerializers = GeneratedSerializer.prototype.typeParametersSerializers;
   MessageResponse$$serializer.prototype.patch_h7kg3r$ = GeneratedSerializer.prototype.patch_h7kg3r$;
