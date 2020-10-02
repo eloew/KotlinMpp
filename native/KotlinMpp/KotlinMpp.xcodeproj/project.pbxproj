@@ -14,8 +14,8 @@
 		1ABBC76E232F766D00DD0B13 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ABBC76C232F766D00DD0B13 /* LaunchScreen.storyboard */; };
 		1ABBC779232F766D00DD0B13 /* KotlinMppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABBC778232F766D00DD0B13 /* KotlinMppTests.swift */; };
 		1ABBC784232F766D00DD0B13 /* KotlinMppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABBC783232F766D00DD0B13 /* KotlinMppUITests.swift */; };
-		1ABBC792232F796100DD0B13 /* SharedCode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ABBC791232F796100DD0B13 /* SharedCode.framework */; };
-		1ABBC793232F796100DD0B13 /* SharedCode.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1ABBC791232F796100DD0B13 /* SharedCode.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1ADE153F250F6F2B008FF50E /* SharedCode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ABBC791232F796100DD0B13 /* SharedCode.framework */; };
+		1ADE1540250F6F2B008FF50E /* SharedCode.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1ABBC791232F796100DD0B13 /* SharedCode.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,13 +36,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		1ABBC794232F796100DD0B13 /* Embed Frameworks */ = {
+		1ADE1541250F6F2B008FF50E /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				1ABBC793232F796100DD0B13 /* SharedCode.framework in Embed Frameworks */,
+				1ADE1540250F6F2B008FF50E /* SharedCode.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -64,6 +64,7 @@
 		1ABBC783232F766D00DD0B13 /* KotlinMppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KotlinMppUITests.swift; sourceTree = "<group>"; };
 		1ABBC785232F766D00DD0B13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1ABBC791232F796100DD0B13 /* SharedCode.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SharedCode.framework; path = "../../SharedCode/build/xcode-frameworks/SharedCode.framework"; sourceTree = "<group>"; };
+		1ADE153C250F6EF4008FF50E /* SharedCode.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SharedCode.framework; path = "../../../../../HMRI/Kotlin/RICommon/SharedCode/build/xcode-frameworks/SharedCode.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,7 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1ABBC792232F796100DD0B13 /* SharedCode.framework in Frameworks */,
+				1ADE153F250F6F2B008FF50E /* SharedCode.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,6 +101,7 @@
 				1ABBC777232F766D00DD0B13 /* KotlinMppTests */,
 				1ABBC782232F766D00DD0B13 /* KotlinMppUITests */,
 				1ABBC761232F766C00DD0B13 /* Products */,
+				1ADE153B250F6EF4008FF50E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -144,6 +146,14 @@
 			path = KotlinMppUITests;
 			sourceTree = "<group>";
 		};
+		1ADE153B250F6EF4008FF50E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1ADE153C250F6EF4008FF50E /* SharedCode.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -155,7 +165,7 @@
 				1ABBC75C232F766C00DD0B13 /* Sources */,
 				1ABBC75D232F766C00DD0B13 /* Frameworks */,
 				1ABBC75E232F766C00DD0B13 /* Resources */,
-				1ABBC794232F796100DD0B13 /* Embed Frameworks */,
+				1ADE1541250F6F2B008FF50E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

@@ -2,6 +2,7 @@ plugins {
     kotlin("multiplatform")
     kotlin("plugin.serialization")
     `maven-publish`
+    id("com.squareup.sqldelight")
 }
 
 group = "com.erl"
@@ -39,6 +40,7 @@ kotlin {
         //nodejs()
     }
     sourceSets {
+        val sqlDelight = "1.3.0"
         val ktorVersion = "1.4.0"
         val coroutinesVersion = "1.3.9-native-mt"
         val serializationVersion = "1.0.0-RC"
@@ -61,6 +63,8 @@ kotlin {
                 implementation(ktorClient("json"))
                 implementation(ktorClient("serialization"))
 
+                implementation("com.squareup.sqldelight:runtime:$sqlDelight")
+
             }
         }
 
@@ -76,6 +80,8 @@ kotlin {
                 implementation(ktorClient("json-jvm"))
                 implementation(ktorClient("serialization-jvm"))
                 implementation(ktorClient("okhttp"))
+
+                implementation("com.squareup.sqldelight:android-driver:$sqlDelight")
             }
         }
 
@@ -87,10 +93,7 @@ kotlin {
                 // Ktor client
                 implementation("io.ktor:ktor-client-ios:$ktorVersion")
 
-                //implementation(ktorClient("core-native"))
-                //implementation(ktorClient("json-native"))
-                //implementation(ktorClient("serialization-native"))
-                //implementation(ktorClient("ios"))
+                implementation("com.squareup.sqldelight:native-driver:$sqlDelight")
             }
         }
 /**/
@@ -103,7 +106,7 @@ kotlin {
                 //implementation(serialization("-js"))
                 // Ktor client
                 implementation("io.ktor:ktor-client-js:$ktorVersion")
-                implementation("io.ktor:ktor-client-serialization-js:$serializationVersion")
+                //implementation("io.ktor:ktor-client-serialization-js:$serializationVersion")
                 //implementation(ktorClient("core-js"))
                 //implementation(ktorClient("json-js"))
                 //implementation(ktorClient("serialization-js"))
@@ -153,6 +156,12 @@ val copyToStaticWeb = tasks.register<Copy>("copyToStaticWeb") {
         , "$rootDir/build/js/packages/KotlinMpp-SharedCode/kotlin/KotlinMpp-SharedCode.js"
     )
           into(file("$rootDir/js/KotlinMppStaticWeb/libraries"))
+}
+
+sqldelight {
+    database("KotlinMppDb") {
+        packageName = "com.erl.kotlinmpp.sharedcode.db"
+    }
 }
 
 

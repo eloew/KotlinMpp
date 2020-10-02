@@ -1,0 +1,30 @@
+CREATE TABLE spacecraft (
+id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+uid TEXT NOT NULL,
+name TEXT NOT NULL,
+status TEXT NOT NULL,
+dateStatus INTEGER NOT NULL
+);
+
+
+selectAll:
+SELECT * FROM spacecraft;
+
+selectById:
+SELECT * FROM spacecraft WHERE id = ?;
+
+selectByName:
+SELECT * FROM spacecraft WHERE name = ?;
+
+insertSpacecraft:
+INSERT INTO spacecraft(uid, name, status, dateStatus)
+VALUES (?,?,?,?);
+
+updateSpacecraft:
+UPDATE spacecraft SET name=?, status=?, dateStatus=? WHERE id=?;
+
+getSpacecraftId:
+SELECT id FROM spacecraft WHERE uid = ?;
+
+deleteAll:
+DELETE FROM spacecraft;
