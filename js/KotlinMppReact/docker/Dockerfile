@@ -1,14 +1,14 @@
 FROM nginx
 
 COPY nginx.config /etc/nginx/conf.d/default.conf
-COPY index.html /usr/share/nginx/html
-COPY install.js /usr/share/nginx/html
-COPY install.svg /usr/share/nginx/html
-COPY Kotlin-logo.svg /usr/share/nginx/html
-COPY KotlinMppReact.js /usr/share/nginx/html
-COPY main.css /usr/share/nginx/html
-COPY manifest.json /usr/share/nginx/html
-COPY offline.html /usr/share/nginx/html
-COPY service-worker.js /usr/share/nginx/html
-COPY images /usr/share/nginx/html/images
-COPY favicon.ico /usr/share/nginx/html
+COPY tmp/index.html /usr/share/nginx/html
+COPY tmp/install.js /usr/share/nginx/html
+COPY tmp/install.svg /usr/share/nginx/html
+COPY tmp/Kotlin-logo.svg /usr/share/nginx/html
+COPY tmp/KotlinMppReact.js /usr/share/nginx/html
+COPY tmp/main.css /usr/share/nginx/html
+COPY tmp/manifest.json /usr/share/nginx/html
+COPY tmp/offline.html /usr/share/nginx/html
+COPY tmp/service-worker.js /usr/share/nginx/html
+COPY tmp/images /usr/share/nginx/html/images
+COPY tmp/favicon.ico /usr/share/nginx/html

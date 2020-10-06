@@ -4,6 +4,36 @@
 ## Run
 * ./gradlew run --continuous
 
+## Docker
+Run gradle tasks
+``` 
+    Tasks > kotlin browser > browserDevelopmentWebpack
+    Task > other > copyToDocker   ???
+```
+build
+``` 
+docker image build -t kotlinmppreact:app .
+``` 
+Verify Image
+``` 
+docker image ls
+docker container run -it ricommonreact bash
+    cd /etc/nginx/conf.d
+    ls
+    more default.conf
+    cd /usr/share/nginx/html
+    ls
+    exit to quit
+``` 
+test
+``` 
+docker container run -it -p 8888 kotlinmppreact:app
+http://localhost:8888/
+``` 
+remove image
+``` 
+docker rmi -f kotlinmppreact:app
+``` 
 ## PWA parts
 
 pwa is all javascript. 
