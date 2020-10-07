@@ -8,8 +8,9 @@
 Run gradle tasks
 ``` 
     Tasks > kotlin browser > browserDevelopmentWebpack
-    Task > other > copyToDocker   ???
+    Task > other > copyToDocker
 ```
+
 build
 ``` 
 docker image build -t kotlinmppreact:app .
@@ -17,7 +18,7 @@ docker image build -t kotlinmppreact:app .
 Verify Image
 ``` 
 docker image ls
-docker container run -it ricommonreact bash
+docker container run -it kotlinmppreact:app bash
     cd /etc/nginx/conf.d
     ls
     more default.conf
@@ -25,10 +26,10 @@ docker container run -it ricommonreact bash
     ls
     exit to quit
 ``` 
-test
+run
 ``` 
-docker container run -it -p 8888 kotlinmppreact:app
-http://localhost:8888/
+docker container run -i -p 8080:80 kotlinmppreact:app
+http://localhost:8080
 ``` 
 remove image
 ``` 

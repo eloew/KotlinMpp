@@ -8,3 +8,5 @@
 .externalNativeBuild
 
 /SharedCode/build
+
+/js/KotlinMppReact/docker/tmp/*
