@@ -41,7 +41,7 @@ kotlin {
     sourceSets {
         val ktorVersion = "1.4.0"
         val coroutinesVersion = "1.3.9-native-mt"
-        val serializationVersion = "1.0.0-RC"
+        val serializationVersion = "1.4.1"
         // Shortcuts
         fun kotlinx(module: String, version: String) = "org.jetbrains.kotlinx:kotlinx-$module:$version"
         fun coroutines(module: String = "") = kotlinx("coroutines-core$module", coroutinesVersion)
@@ -160,3 +160,14 @@ tasks.getByName("assemble").dependsOn(packForXcode)
 tasks.getByName("assemble").dependsOn(copyToStaticWeb)
 tasks.getByName("assemble").dependsOn("publishJsPublicationToMavenLocal")
 //tasks.getByName("publishJsPublicationToMavenLocal").mustRunAfter("build")
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            groupId = "com.erl.kotlinmpp"
+            artifactId = "KotlinMpp"
+            version = "1.0"
+        }
+    }
+}
+
